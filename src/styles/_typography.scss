@@ -1,0 +1,9 @@
+@import 'variables';
+
+.body1 { font-size: $font-size-base; font-weight: $font-weight-normal; }
+.body2 { font-size: $font-size-sm; font-weight: $font-weight-normal; }
+
+
+.caption { font-size: $font-size-sm; color: $color-text-muted; }
+.muted { color: $color-text-muted; }
+.bold { font-weight: $font-weight-bold; }
