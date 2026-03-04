@@ -1,8 +1,9 @@
 import axios from 'axios';
 import type { ApiError } from './types';
+import { BASE_URL } from './constants';
 
 const axiosInstance = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: BASE_URL,
   headers: {
     'Content-Type': 'application/json',
   },

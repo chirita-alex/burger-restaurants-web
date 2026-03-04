@@ -5,6 +5,7 @@ import App from './App.tsx'
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { retryHandler } from './api/utils/retryHandler.ts';
 import { STALE_TIME } from './api/constants.ts';
+import { worker } from './mocks/browser.ts';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -20,9 +21,11 @@ const queryClient = new QueryClient({
 
 async function prepare() {
   if (import.meta.env.DEV) {
-    console.log({meta: import.meta.env.DEV});
-    // const { worker } = await import('./mocks/browser')
-    // return worker.start()
+    try {
+      await worker.start({ onUnhandledRequest: 'bypass' });
+    } catch (error) {
+      console.error('MSW failed to start:', error);
+    }
   }
 }
 

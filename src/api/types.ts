@@ -10,7 +10,6 @@ export type ReviewsParams = PaginatedParams<{
   restaurantId: string;
 }>;
 
-
 export type PaginatedResponse<T> = {
   data: T[];
   nextCursor?: string;

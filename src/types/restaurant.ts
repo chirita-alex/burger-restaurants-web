@@ -26,17 +26,4 @@ export type Restaurant = {
   };
 };
 
-export type NearbyRestaurant = {
-  id: string;
-  name: string;
-  imageUrl: string;
-  program: {
-    openingHours: string;
-  };
-  overallRating: {
-    taste: number;
-    texture: number;
-    visual: number;
-    general: number;
-  };
-};
+export type NearbyRestaurant = Pick<Restaurant, 'id' | 'name' | 'imageUrl' | 'geoLocation' | 'program' | 'overallRating'>;
