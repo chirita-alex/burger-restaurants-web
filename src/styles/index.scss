@@ -13,7 +13,7 @@ body {
   font-size: $font-size-base;
   background-color: $color-background;
   color: $color-text;
-
+  
   h1 {
     font-size: $font-size-2xl;
     font-weight: $font-weight-bold;
@@ -33,5 +33,25 @@ body {
     color: inherit;
     text-decoration: none;
     outline: none;
+  }
+
+  dl {
+    dt {
+      display: inline;
+      font-weight: $font-weight-semibold;
+
+      &::after {
+        content: ': ';
+      }
+    }
+
+    dd {
+      display: inline;
+
+      &::after {
+        content: '';
+        display: block;
+      }
+    }
   }
 }

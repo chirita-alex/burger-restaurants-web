@@ -22,7 +22,7 @@ const queryClient = new QueryClient({
 async function prepare() {
   if (import.meta.env.DEV) {
     try {
-      await worker.start({ onUnhandledRequest: 'bypass' });
+      await worker.start();
     } catch (error) {
       console.error('MSW failed to start:', error);
     }

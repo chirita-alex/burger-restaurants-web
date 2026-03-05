@@ -4,17 +4,9 @@ import type { NearbyRestaurantsResponse } from '../../api/types';
 import { BASE_URL } from '../../api/constants';
 import { mockDelay } from '../utils/delay';
 
-const DEFAULT_LIMIT = 3;
+const DEFAULT_LIMIT = 7;
 
 export const restaurantHandlers = [
-  http.get(`${BASE_URL}/api/v1/restaurants/:id`, async ({ params }) => {
-    await mockDelay();
-    return HttpResponse.json({
-      ...mockRestaurant,
-      id: params.id,
-    });
-  }),
-
   http.get(`${BASE_URL}/api/v1/restaurants/nearby`, async ({ request }) => {
     await mockDelay();
     const url = new URL(request.url);
@@ -34,5 +26,13 @@ export const restaurantHandlers = [
     };
 
     return HttpResponse.json(response);
+  }),
+
+  http.get(`${BASE_URL}/api/v1/restaurants/:id`, async ({ params }) => {
+    await mockDelay();
+    return HttpResponse.json({
+      ...mockRestaurant,
+      id: params.id,
+    });
   }),
 ]

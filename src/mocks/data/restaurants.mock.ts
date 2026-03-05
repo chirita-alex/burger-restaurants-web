@@ -28,7 +28,7 @@ export const mockNearbyRestaurants: NearbyRestaurant[] = [
     name: 'Smash Bros Burgers',
     imageUrl: '/images/restaurants/restaurant_4.webp',
     program: { openingHours: 'Mon-Fri 11:00-23:00' },
-    geoLocation: { latitude: 44.4268, longitude: 26.1025 },
+    geoLocation: { latitude: 44.4320, longitude: 26.1080 },
     overallRating: { taste: 4.8, texture: 4.6, visual: 4.3, general: 4.7 },
   },
   {
@@ -36,7 +36,7 @@ export const mockNearbyRestaurants: NearbyRestaurant[] = [
     name: 'The Patty Lab',
     imageUrl: '/images/restaurants/restaurant_2.webp',
     program: { openingHours: 'Tue-Sun 12:00-21:00' },
-    geoLocation: { latitude: 44.4268, longitude: 26.1025 },
+    geoLocation: { latitude: 44.4210, longitude: 26.0950 },
     overallRating: { taste: 4.2, texture: 4.4, visual: 4.6, general: 4.3 },
   },
   {
@@ -44,7 +44,7 @@ export const mockNearbyRestaurants: NearbyRestaurant[] = [
     name: 'Big Bun Theory',
     imageUrl: '/images/restaurants/restaurant_5.webp',
     program: { openingHours: 'Mon-Sun 09:00-23:00' },
-    geoLocation: { latitude: 44.4268, longitude: 26.1025 },
+    geoLocation: { latitude: 44.4380, longitude: 26.0890 },
     overallRating: { taste: 4.6, texture: 4.5, visual: 4.7, general: 4.6 },
   },
   {
@@ -52,7 +52,7 @@ export const mockNearbyRestaurants: NearbyRestaurant[] = [
     name: 'Grill & Chill',
     imageUrl: '/images/restaurants/restaurant_6.webp',
     program: { openingHours: 'Wed-Sun 12:00-22:00' },
-    geoLocation: { latitude: 44.4268, longitude: 26.1025 },
+    geoLocation: { latitude: 44.4190, longitude: 26.1120 },
     overallRating: { taste: 4.3, texture: 4.1, visual: 4.5, general: 4.2 },
   },
   {
@@ -60,7 +60,15 @@ export const mockNearbyRestaurants: NearbyRestaurant[] = [
     name: 'Great BURGERS!',
     imageUrl: '/images/restaurants/restaurant_2.webp',
     program: { openingHours: 'Mon-Sun 09:00-23:00' },
-    geoLocation: { latitude: 44.4268, longitude: 26.1025 },
+    geoLocation: { latitude: 44.4435, longitude: 26.0975 },
     overallRating: { taste: 4.6, texture: 4.5, visual: 4.7, general: 4.6 },
+  },
+  {
+    id: '7',
+    name: 'Bun & Done',
+    imageUrl: '/images/restaurants/restaurant_3.webp',
+    program: { openingHours: 'Mon-Sat 11:00-22:00' },
+    geoLocation: { latitude: 44.4150, longitude: 26.1150 },
+    overallRating: { taste: 4.4, texture: 4.3, visual: 4.5, general: 4.4 },
   },
 ];

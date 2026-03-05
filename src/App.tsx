@@ -1,18 +1,9 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.scss";
-import { useRestaurantReviews } from "./api/hooks/useRestaurantReviews";
 import { useNearbyRestaurants } from "./api/hooks/useNearbyRestaurants";
-import { useRestaurant } from "./api/hooks/useRestaurant";
+import { useMemo } from "react";
+import MapWidget from "./shared/mapWidget/MapWidget";
 
-function App() {
-  const [count, setCount] = useState(0);
-  const {
-    data: reviewsData,
-    isLoading,
-    error,
-  } = useRestaurantReviews({ restaurantId: "1" });
+const App = () => {
   const {
     data: nearbyRestaurantsData,
     isLoading: nearbyLoading,
@@ -22,39 +13,43 @@ function App() {
     longitude: 26.1025,
     radius: 5000,
   });
-  const {
-    data: restaurantData,
-    isLoading: restaurantLoading,
-    error: restaurantError,
-  } = useRestaurant({ id: "1" });
 
-  console.log({ reviewsData, nearbyRestaurantsData, restaurantData });
-  console.log({ nearbyLoading, restaurantLoading, isLoading });
+  const nearbyLocations = useMemo(() => {
+    return (nearbyRestaurantsData?.data || []).map((nearbyRestaurants) => {
+      return {
+        id: nearbyRestaurants.id,
+        latitude: nearbyRestaurants.geoLocation.latitude,
+        longitude: nearbyRestaurants.geoLocation.longitude,
+        tooltip: {
+          id: nearbyRestaurants.id,
+          name: nearbyRestaurants.name,
+          openingHours: nearbyRestaurants.program.openingHours,
+          overallRating: nearbyRestaurants.overallRating.general,
+        },
+      };
+    });
+  }, [nearbyRestaurantsData]);
+
+  // Test map widget with mock data
+  console.log({ nearbyRestaurantsData, nearbyLoading, nearbyError });
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div style={{ height: "650px" }}>
+      <MapWidget
+        pins={nearbyLocations}
+        renderTooltip={(tooltip) => (
+          <article aria-labelledby={`restaurant-${tooltip.id}`}>
+            <h4 id={`restaurant-${tooltip.id}`}>{tooltip.name}</h4>
+            <dl>
+              <dt>Program</dt><dd>{tooltip.openingHours}</dd>
+              <dt>Overall Rating</dt><dd>{tooltip.overallRating}</dd>
+            </dl>
+          </article>
+        )}
+        ariaLabel="Interactive map showing nearby restaurants"
+      />
+    </div>
   );
-}
+};
 
 export default App;
