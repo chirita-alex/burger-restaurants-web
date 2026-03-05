@@ -1,8 +1,0 @@
-@use '../../../styles/variables' as *;
-
-.pageContent {
-  padding: $spacing-md $spacing-xl;
-  display: flex;
-  flex-direction: column;
-  gap: $spacing-md;
-}

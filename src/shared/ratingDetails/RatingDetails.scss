@@ -1,0 +1,46 @@
+@use '../../styles/variables' as *;
+
+.rating-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-xs $spacing-md;
+  align-items: baseline;
+
+  &__label {
+    font-weight: $font-weight-medium;
+    color: $color-text-muted;
+  }
+
+  &__value {
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+
+    &:not(:last-child) {
+      margin-right: $spacing-sm;
+    }
+
+    &:last-child {
+      margin-left: auto;
+    }
+  }
+
+  &--sm &__label,
+  &--sm &__value {
+    font-size: $font-size-sm;
+  }
+
+  &--sm &__value:last-child {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+
+  &--md &__label,
+  &--md &__value {
+    font-size: $font-size-base;
+  }
+
+  &--lg &__label,
+  &--lg &__value {
+    font-size: $font-size-lg;
+  }
+}

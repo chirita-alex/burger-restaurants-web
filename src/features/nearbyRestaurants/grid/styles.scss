@@ -1,0 +1,129 @@
+@use '../../../styles/variables' as *;
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: $spacing-md;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+}
+
+.card {
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+  transition: box-shadow 0.2s, transform 0.2s;
+
+  &:hover {
+    box-shadow: $shadow-lg;
+    transform: translateY(-2px);
+  }
+
+  &:focus-within {
+    box-shadow: 0 0 0 2px $color-primary;
+  }
+
+  .image {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+  }
+
+  .body {
+    padding: $spacing-sm;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  .title {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+  }
+
+  .details {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 2px $spacing-sm;
+    font-size: $font-size-sm;
+    color: $color-text-muted;
+
+    dt { font-weight: $font-weight-medium; }
+    dd { color: $color-text; }
+  }
+}
+
+
+
+// Loading skeleton - START
+@keyframes shimmer {
+  0% { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+%skeleton-base {
+  background: linear-gradient(
+    90deg,
+    $color-border 25%,
+    darken($color-border, 4%) 50%,
+    $color-border 75%
+  );
+  background-size: 800px 100%;
+  animation: shimmer 1.4s infinite linear;
+  border-radius: $border-radius-sm;
+}
+
+.card-skeleton {
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-md;
+  overflow: hidden;
+
+  &__image {
+    @extend %skeleton-base;
+    width: 100%;
+    height: 250px;
+    border-radius: 0;
+  }
+
+  &__body {
+    padding: $spacing-sm;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__title {
+    @extend %skeleton-base;
+    height: 20px;
+    width: 60%;
+  }
+
+  &__line {
+    @extend %skeleton-base;
+    height: 14px;
+    width: 100%;
+
+    &--short {
+      width: 40%;
+    }
+  }
+
+  &__ratings {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $spacing-xs;
+
+    .card-skeleton__line {
+      flex: 1 1 60px;
+    }
+  }
+}
+// Loading skeleton - END

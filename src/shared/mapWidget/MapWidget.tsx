@@ -37,12 +37,12 @@ const MapWidget = <T = Record<string, unknown>,>({
   zoom = DEFAULT_ZOOM,
   ariaLabel = "Interactive map",
 }: MapWidgetProps<T>) => {
-  // TODO: add fallback if map fails to load
   return (
     <section aria-label={ariaLabel} style={{ width: "100%", height: "100%" }}>
       <MapContainer
         center={center}
         zoom={zoom}
+        scrollWheelZoom={false}
         className="mapWidgetStyles"
       >
         <TileLayer
