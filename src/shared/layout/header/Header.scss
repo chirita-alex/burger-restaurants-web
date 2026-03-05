@@ -1,0 +1,22 @@
+@use '../../../styles/variables' as *;
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-sm $spacing-md;
+  background-color: $color-bg-header;
+  color: $color-surface;
+
+  .logo {
+    font-size: $font-size-lg;
+    font-weight: $font-weight-bold;
+    color: $color-surface;
+  }
+
+  .nav {
+    display: flex;
+    gap: $spacing-sm;
+    list-style: none;
+  }
+}

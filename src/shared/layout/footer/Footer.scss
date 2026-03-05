@@ -1,0 +1,15 @@
+@use '../../../styles/variables' as *;
+
+.footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: $spacing-sm $spacing-md;
+  background-color: $color-bg-footer;
+  color: $color-surface;
+
+  .copy {
+    font-size: $font-size-sm;
+    color: rgba(255, 255, 255, 0.8);
+  }
+}

@@ -1,6 +1,7 @@
 import { useNearbyRestaurants } from "../api/hooks/useNearbyRestaurants";
 import { useMemo } from "react";
 import MapWidget from "../shared/mapWidget/MapWidget";
+import { PageContainer } from "../shared/layout/pageContent/PageContent";
 
 const HomePage = () => {
   const {
@@ -32,21 +33,23 @@ const HomePage = () => {
   // TODO: add loading and error states and grid of nearby restaurants below the map
 
   return (
-    <div style={{ height: "650px" }}>
-      <MapWidget
-        pins={nearbyLocations}
-        renderTooltip={(tooltip) => (
-          <article aria-labelledby={`restaurant-${tooltip.id}`}>
-            <h4 id={`restaurant-${tooltip.id}`}>{tooltip.name}</h4>
-            <dl>
-              <dt>Program</dt><dd>{tooltip.openingHours}</dd>
-              <dt>Overall Rating</dt><dd>{tooltip.overallRating}</dd>
-            </dl>
-          </article>
-        )}
-        ariaLabel="Interactive map showing nearby restaurants"
-      />
-    </div>
+    <PageContainer>
+      <div style={{ height: "650px" }}>
+        <MapWidget
+          pins={nearbyLocations}
+          renderTooltip={(tooltip) => (
+            <article aria-labelledby={`restaurant-${tooltip.id}`}>
+              <h4 id={`restaurant-${tooltip.id}`} style={{ textAlign: "center" }}>{tooltip.name}</h4>
+              <dl>
+                <dt>Program</dt><dd>{tooltip.openingHours}</dd>
+                <dt>General rating</dt><dd>{tooltip.overallRating}</dd>
+              </dl>
+            </article>
+          )}
+          ariaLabel="Interactive map showing nearby restaurants"
+        />
+      </div>
+    </PageContainer>
   );
 };
 

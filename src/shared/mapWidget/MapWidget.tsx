@@ -1,4 +1,5 @@
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import "./MapWidget.scss";
 import "leaflet/dist/leaflet.css";
 import L from "leaflet";
 
@@ -36,12 +37,13 @@ const MapWidget = <T = Record<string, unknown>,>({
   zoom = DEFAULT_ZOOM,
   ariaLabel = "Interactive map",
 }: MapWidgetProps<T>) => {
+  // TODO: add fallback if map fails to load
   return (
     <section aria-label={ariaLabel} style={{ width: "100%", height: "100%" }}>
       <MapContainer
         center={center}
         zoom={zoom}
-        style={{ width: "100%", height: "100%" }}
+        className="mapWidgetStyles"
       >
         <TileLayer
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

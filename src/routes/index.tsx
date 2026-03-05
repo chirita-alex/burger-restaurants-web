@@ -2,9 +2,11 @@ import { createBrowserRouter } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 import RestaurantPage from "../pages/RestaurantPage";
 import Notice from "../shared/Notice";
-
+import Layout from "../layout/Layout";
+  
 export const router = createBrowserRouter([
   {
+    element: <Layout />,
     errorElement: <Notice />,
     children: [
       {
