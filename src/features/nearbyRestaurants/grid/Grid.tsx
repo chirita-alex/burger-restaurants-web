@@ -10,7 +10,7 @@ type GridProps = {
 };
 
 const Grid = ({ items, isLoading = false, skeletonCount = 6 }: GridProps) => (
-  <ul className="grid">
+  <ul className="grid" aria-busy={isLoading}>
     {
       isLoading
         ? Array.from({ length: skeletonCount }, (_, i) => <CardSkeleton key={i} />)

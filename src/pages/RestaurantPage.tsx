@@ -1,9 +1,13 @@
+import { useParams } from "react-router-dom";
+import RestaurantDetails from "../features/restaurantDetails/RestaurantDetails";
+
 const RestaurantPage = () => {
-  return (
-    <div>
-      <h1>Restaurant Page</h1>
-    </div>
-  );
+  const { id } = useParams<{ id: string }>();
+
+  // TODO: add Notice error handling
+  if (!id) return null;
+
+  return <RestaurantDetails restaurantId={id} />;
 };
 
 export default RestaurantPage;

@@ -1,0 +1,84 @@
+@use '../../styles/variables' as *;
+
+@keyframes shimmer {
+  0% { background-position: -800px 0; }
+  100% { background-position: 800px 0; }
+}
+
+.restaurant-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: $spacing-lg;
+  background-color: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: $spacing-lg;
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    object-fit: cover;
+    display: block;
+  }
+
+  &__info {
+    padding: $spacing-md;
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-md;
+  }
+
+  &__name {
+    font-size: $font-size-2xl;
+    font-weight: $font-weight-bold;
+    color: $color-text;
+  }
+
+  &__meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: $spacing-xs $spacing-sm;
+    font-size: $font-size-base;
+
+    dt {
+      font-weight: $font-weight-semibold;
+      color: $color-text-muted;
+    }
+
+    dd {
+      color: $color-text;
+    }
+  }
+
+  &__description {
+    font-size: $font-size-base;
+    color: $color-text-muted;
+    line-height: 1.6;
+  }
+
+  &--loading {
+    padding: 0;
+  }
+
+  &__skeleton {
+    grid-column: 1 / -1;
+    height: 520px;
+    border-radius: $border-radius-lg;
+    background: linear-gradient(
+      90deg,
+      #b8bec7 0%,
+      #f0f2f5 40%,
+      #ffffff 50%,
+      #f0f2f5 60%,
+      #b8bec7 100%
+    );
+    background-size: 1600px 100%;
+    animation: shimmer 1.6s infinite linear;
+  }
+}
