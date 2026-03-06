@@ -1,3 +1,3 @@
 import { delay } from 'msw';
 
-export const mockDelay = () => delay(800);
+export const mockDelay = () => delay(500);

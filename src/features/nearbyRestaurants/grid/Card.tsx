@@ -14,7 +14,7 @@ const Card = ({ item }: CardProps) => {
         to={`/restaurant/${item.id}`}
         aria-label={`View details for ${item.name}`}
       >
-        <img className="image" src={item.imageUrl} alt="" loading="lazy" />
+        <img className="image" src={item.imageUrl} alt="" fetchPriority="high" />
         <div className="body">
             <h3 className="title">{item.name}</h3>
             <dl className="details">

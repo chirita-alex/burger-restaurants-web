@@ -14,7 +14,7 @@ const Grid = ({ items, isLoading = false, skeletonCount = 6 }: GridProps) => (
     {
       isLoading
         ? Array.from({ length: skeletonCount }, (_, i) => <CardSkeleton key={i} />)
-        : items.map((item) => <Card key={item.id} item={item} />)
+        : items.map((item, index) => <Card key={item.id} item={item} priority={index === 0} />)
     }
   </ul>
 );

@@ -1,7 +1,12 @@
 import NearbyRestaurants from "../features/nearbyRestaurants/NearbyRestaurants";
 
 const HomePage = () => {
-  return <NearbyRestaurants />;
+  return (
+    <>
+      <title>Nearby restaurants</title>
+      <NearbyRestaurants />;
+    </>
+  )
 };
 
 export default HomePage;
