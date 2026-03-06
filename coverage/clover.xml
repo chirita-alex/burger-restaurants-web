@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1772789776717" clover="3.2.0">
+  <project timestamp="1772789776717" name="All files">
+    <metrics statements="9" coveredstatements="9" conditionals="14" coveredconditionals="13" methods="2" coveredmethods="2" elements="25" coveredelements="24" complexity="0" loc="9" ncloc="9" packages="3" files="7" classes="7"/>
+    <package name="assets.icons">
+      <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      <file name="empty-files.svg" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/assets/icons/empty-files.svg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="error.svg" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/assets/icons/error.svg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="not-found.svg" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/assets/icons/not-found.svg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="unauthorized.svg" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/assets/icons/unauthorized.svg">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="shared.notice">
+      <metrics statements="7" coveredstatements="7" conditionals="14" coveredconditionals="13" methods="1" coveredmethods="1"/>
+      <file name="Notice.scss" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/notice/Notice.scss">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="Notice.tsx" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/notice/Notice.tsx">
+        <metrics statements="7" coveredstatements="7" conditionals="14" coveredconditionals="13" methods="1" coveredmethods="1"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="38" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="39" count="15" type="stmt"/>
+        <line num="41" count="15" type="cond" truecount="3" falsecount="1"/>
+        <line num="44" count="15" type="stmt"/>
+        <line num="46" count="15" type="stmt"/>
+      </file>
+    </package>
+    <package name="utils">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="prettyDate.ts" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/utils/prettyDate.ts">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="4" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
