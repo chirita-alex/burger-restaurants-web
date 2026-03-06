@@ -24,7 +24,7 @@ const createWrapper = () => {
   };
 };
 
-describe('RestaurantDetails (integration)', () => {
+describe('RestaurantDetails - integration', () => {
   it('shows skeleton while loading', () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
     expect(document.querySelector('.restaurant-details--loading')).toBeInTheDocument();
