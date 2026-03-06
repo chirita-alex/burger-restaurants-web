@@ -17,7 +17,7 @@ const NearbyRestaurants = () => {
 
   const restaurants = useMemo(() => nearbyRestaurantsData?.data ?? [], [nearbyRestaurantsData]);
 
-  const mapNearbyLocations = useMemo(() => {
+  const nearbyLocationsPins = useMemo(() => {
     return restaurants.map((restaurant) => ({
       id: restaurant.id,
       latitude: restaurant.geoLocation.latitude,
@@ -59,7 +59,7 @@ const NearbyRestaurants = () => {
 
       <div style={{ height: "450px" }}>
         <MapWidget
-          pins={mapNearbyLocations}
+          pins={nearbyLocationsPins}
           renderTooltip={(tooltip) => (
             <article aria-labelledby={`restaurant-${tooltip.id}`}>
               <h4 id={`restaurant-${tooltip.id}`} style={{ textAlign: "center" }}>

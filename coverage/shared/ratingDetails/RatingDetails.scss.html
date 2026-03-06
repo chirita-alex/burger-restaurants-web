@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for shared/notice/Notice.scss</title>
+    <title>Code coverage report for shared/ratingDetails/RatingDetails.scss</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">shared/notice</a> Notice.scss</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">shared/ratingDetails</a> RatingDetails.scss</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -106,7 +106,13 @@
 <a name='L41'></a><a href='#L41'>41</a>
 <a name='L42'></a><a href='#L42'>42</a>
 <a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -151,45 +157,48 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">@use '../../styles/variables' as *;
 &nbsp;
-.notice {
+.rating-details {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: $spacing-md;
-  min-height: 25dvh;
-  padding: $spacing-xl;
-  text-align: center;
+  flex-wrap: wrap;
+  gap: $spacing-xs $spacing-md;
+  align-items: baseline;
 &nbsp;
-  &amp;__icon {
-    width: 250px;
-    height: 250px;
-  }
-&nbsp;
-  &amp;__heading {
-    font-size: $font-size-2xl;
-    font-weight: $font-weight-bold;
-    color: $color-text;
-  }
-&nbsp;
-  &amp;__message {
-    font-size: $font-size-base;
-    color: $color-text-muted;
-    max-width: 480px;
-  }
-&nbsp;
-  &amp;__link {
-    display: inline-block;
-    padding: $spacing-xs $spacing-md;
-    background-color: $color-primary;
-    color: $color-surface;
-    border-radius: $border-radius-md;
+  &amp;__label {
     font-weight: $font-weight-medium;
-    transition: opacity 0.2s;
+    color: $color-text-muted;
+  }
 &nbsp;
-    &amp;:hover {
-      opacity: 0.85;
+  &amp;__value {
+    font-weight: $font-weight-semibold;
+    color: $color-text;
+&nbsp;
+    &amp;:not(:last-child) {
+      margin-right: $spacing-sm;
     }
+&nbsp;
+    &amp;:last-child {
+      margin-left: auto;
+    }
+  }
+&nbsp;
+  &amp;--sm &amp;__label,
+  &amp;--sm &amp;__value {
+    font-size: $font-size-sm;
+  }
+&nbsp;
+  &amp;--sm &amp;__value:last-child {
+    flex-basis: 100%;
+    margin-left: 0;
+  }
+&nbsp;
+  &amp;--md &amp;__label,
+  &amp;--md &amp;__value {
+    font-size: $font-size-base;
+  }
+&nbsp;
+  &amp;--lg &amp;__label,
+  &amp;--lg &amp;__value {
+    font-size: $font-size-lg;
   }
 }
 &nbsp;</pre></td></tr></table></pre>

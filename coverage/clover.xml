@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1772789776717" clover="3.2.0">
-  <project timestamp="1772789776717" name="All files">
-    <metrics statements="9" coveredstatements="9" conditionals="14" coveredconditionals="13" methods="2" coveredmethods="2" elements="25" coveredelements="24" complexity="0" loc="9" ncloc="9" packages="3" files="7" classes="7"/>
+<coverage generated="1772793247918" clover="3.2.0">
+  <project timestamp="1772793247919" name="All files">
+    <metrics statements="44" coveredstatements="44" conditionals="32" coveredconditionals="31" methods="18" coveredmethods="18" elements="94" coveredelements="93" complexity="0" loc="44" ncloc="44" packages="10" files="22" classes="22"/>
     <package name="assets.icons">
       <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="empty-files.svg" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/assets/icons/empty-files.svg">
@@ -15,6 +15,94 @@
       </file>
       <file name="unauthorized.svg" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/assets/icons/unauthorized.svg">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="features.nearbyRestaurants.grid">
+      <metrics statements="8" coveredstatements="8" conditionals="4" coveredconditionals="4" methods="5" coveredmethods="5"/>
+      <file name="Card.tsx" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/features/nearbyRestaurants/grid/Card.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="12" type="stmt"/>
+      </file>
+      <file name="CardSkeleton.tsx" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/features/nearbyRestaurants/grid/CardSkeleton.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="21" type="stmt"/>
+      </file>
+      <file name="Grid.tsx" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/features/nearbyRestaurants/grid/Grid.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="4" coveredconditionals="4" methods="3" coveredmethods="3"/>
+        <line num="12" count="1" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="7" type="stmt"/>
+        <line num="16" count="21" type="stmt"/>
+        <line num="17" count="6" type="stmt"/>
+      </file>
+      <file name="styles.scss" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/features/nearbyRestaurants/grid/styles.scss">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="features.restaurantReviews">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="ReviewCard.tsx" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/features/restaurantReviews/ReviewCard.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="10" count="1" type="stmt"/>
+        <line num="11" count="5" type="stmt"/>
+      </file>
+      <file name="styles.scss" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/features/restaurantReviews/styles.scss">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+    </package>
+    <package name="hooks">
+      <metrics statements="11" coveredstatements="11" conditionals="5" coveredconditionals="5" methods="4" coveredmethods="4"/>
+      <file name="useOnVisible.ts" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/hooks/useOnVisible.ts">
+        <metrics statements="11" coveredstatements="11" conditionals="5" coveredconditionals="5" methods="4" coveredmethods="4"/>
+        <line num="7" count="7" type="stmt"/>
+        <line num="8" count="7" type="stmt"/>
+        <line num="10" count="7" type="stmt"/>
+        <line num="11" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="5" type="stmt"/>
+        <line num="15" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="2" type="stmt"/>
+        <line num="23" count="5" type="stmt"/>
+        <line num="25" count="5" type="stmt"/>
+        <line num="28" count="7" type="stmt"/>
+      </file>
+    </package>
+    <package name="shared.layout.footer">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Footer.scss" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/layout/footer/Footer.scss">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="Footer.tsx" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/layout/footer/Footer.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="3" type="stmt"/>
+      </file>
+    </package>
+    <package name="shared.layout.header">
+      <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <file name="Header.scss" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/layout/header/Header.scss">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="Header.tsx" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/layout/header/Header.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="4" type="stmt"/>
+      </file>
+    </package>
+    <package name="shared.mapWidget">
+      <metrics statements="6" coveredstatements="6" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
+      <file name="MapWidget.scss" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/mapWidget/MapWidget.scss">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="MapWidget.tsx" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/mapWidget/MapWidget.tsx">
+        <metrics statements="6" coveredstatements="6" conditionals="8" coveredconditionals="8" methods="2" coveredmethods="2"/>
+        <line num="6" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="33" count="1" type="stmt"/>
+        <line num="40" count="6" type="stmt"/>
+        <line num="53" count="7" type="stmt"/>
       </file>
     </package>
     <package name="shared.notice">
@@ -33,12 +121,25 @@
         <line num="46" count="15" type="stmt"/>
       </file>
     </package>
+    <package name="shared.ratingDetails">
+      <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+      <file name="RatingDetails.scss" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/ratingDetails/RatingDetails.scss">
+        <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+      </file>
+      <file name="RatingDetails.tsx" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/shared/ratingDetails/RatingDetails.tsx">
+        <metrics statements="4" coveredstatements="4" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
+        <line num="9" count="4" type="stmt"/>
+        <line num="16" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="22" type="stmt"/>
+        <line num="19" count="88" type="stmt"/>
+      </file>
+    </package>
     <package name="utils">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="prettyDate.ts" path="/Users/alexandruchirita/Projects/burger-restaurants-web/src/utils/prettyDate.ts">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="2" count="4" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="2" count="9" type="stmt"/>
       </file>
     </package>
   </project>

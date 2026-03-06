@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for shared/notice/Notice.scss</title>
+    <title>Code coverage report for features/restaurantReviews/ReviewCard.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../prettify.css" />
     <link rel="stylesheet" href="../../base.css" />
@@ -19,34 +19,34 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../index.html">All files</a> / <a href="index.html">shared/notice</a> Notice.scss</h1>
+        <h1><a href="../../index.html">All files</a> / <a href="index.html">features/restaurantReviews</a> ReviewCard.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
                 <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/0</span>
+                <span class='fraction'>2/2</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line high'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -103,10 +103,17 @@
 <a name='L38'></a><a href='#L38'>38</a>
 <a name='L39'></a><a href='#L39'>39</a>
 <a name='L40'></a><a href='#L40'>40</a>
-<a name='L41'></a><a href='#L41'>41</a>
-<a name='L42'></a><a href='#L42'>42</a>
-<a name='L43'></a><a href='#L43'>43</a>
-<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L41'></a><a href='#L41'>41</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">5x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -136,62 +143,46 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">@use '../../styles/variables' as *;
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import type { Review } from "../../types/review";
+import RatingDetails from "../../shared/ratingDetails/RatingDetails";
+import { prettyDate } from "../../utils/prettyDate";
+import "./styles.scss";
 &nbsp;
-.notice {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: $spacing-md;
-  min-height: 25dvh;
-  padding: $spacing-xl;
-  text-align: center;
+type ReviewCardProps = {
+  review: Review;
+};
 &nbsp;
-  &amp;__icon {
-    width: 250px;
-    height: 250px;
-  }
+const ReviewCard = ({ review }: ReviewCardProps) =&gt; (
+  &lt;li&gt;
+    &lt;article className="review-card"&gt;
+      &lt;img
+        className="review-card__image"
+        src={review.imageUrl}
+        alt="Photo of the reviewed burger"
+        loading="lazy"
+      /&gt;
 &nbsp;
-  &amp;__heading {
-    font-size: $font-size-2xl;
-    font-weight: $font-weight-bold;
-    color: $color-text;
-  }
+      &lt;div className="review-card__content"&gt;
+        &lt;RatingDetails rating={review.rating} size="lg" /&gt;
 &nbsp;
-  &amp;__message {
-    font-size: $font-size-base;
-    color: $color-text-muted;
-    max-width: 480px;
-  }
+        &lt;p className="review-card__description"&gt;{review.description}&lt;/p&gt;
 &nbsp;
-  &amp;__link {
-    display: inline-block;
-    padding: $spacing-xs $spacing-md;
-    background-color: $color-primary;
-    color: $color-surface;
-    border-radius: $border-radius-md;
-    font-weight: $font-weight-medium;
-    transition: opacity 0.2s;
+        &lt;footer className="review-card__footer"&gt;
+          &lt;p className="review-card__user"&gt;Jhon Doe&lt;/p&gt;
 &nbsp;
-    &amp;:hover {
-      opacity: 0.85;
-    }
-  }
-}
+          &lt;time
+            className="review-card__date"
+            dateTime={new Date(review.createdAt).toISOString()}
+          &gt;
+            {prettyDate(review.createdAt)}
+          &lt;/time&gt;
+        &lt;/footer&gt;
+      &lt;/div&gt;
+    &lt;/article&gt;
+  &lt;/li&gt;
+);
+&nbsp;
+export default ReviewCard;
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
