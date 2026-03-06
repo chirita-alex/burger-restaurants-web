@@ -32,6 +32,7 @@ const NearbyRestaurants = () => {
   return (
     <>
       <Grid items={nearbyRestaurantsData?.data || []} isLoading={isLoading} />
+      
       <div style={{ height: "450px" }}>
         <MapWidget
           pins={mapNearbyLocations}

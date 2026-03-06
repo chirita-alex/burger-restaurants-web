@@ -23,7 +23,7 @@ const ReviewCard = ({ review }: ReviewCardProps) => (
         <p className="review-card__description">{review.description}</p>
 
         <footer className="review-card__footer">
-          <address className="review-card__user">Jhon Doe</address>
+          <p className="review-card__user">Jhon Doe</p>
 
           <time
             className="review-card__date"

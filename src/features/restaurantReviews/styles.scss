@@ -101,6 +101,10 @@
     }
   }
 
+  &__sentinel {
+    height: 1px;
+  }
+
   @keyframes shimmer {
     0% { background-position: -800px 0; }
     100% { background-position: 800px 0; }

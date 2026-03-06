@@ -4,7 +4,7 @@ import type { ReviewsResponse } from '../../api/types';
 import { BASE_URL } from '../../api/constants';
 import { mockDelay } from '../utils/delay';
 
-const DEFAULT_LIMIT = 2;
+const DEFAULT_LIMIT = 3;
 
 export const reviewHandlers = [
   http.get(`${BASE_URL}/api/v1/reviews`, async ({ request }) => {

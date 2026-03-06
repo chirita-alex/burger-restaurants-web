@@ -7,10 +7,10 @@ export const useRestaurantReviews = (
 ): UseInfiniteQueryResult<InfiniteData<ReviewsResponse, unknown>, ApiError> => {
   return useInfiniteQuery<ReviewsResponse, ApiError>({
     queryKey: ["reviews", params.restaurantId],
-    queryFn: () =>
+    queryFn: ({ pageParam }) =>
       getRestaurantReviews({
         ...params,
-        cursor: undefined, // TODO: add cursor support when testing pagination with mocks
+        cursor: pageParam as string | undefined,
       }),
     initialPageParam: undefined,
     getNextPageParam: (lastPage) => lastPage.nextCursor,
