@@ -1,5 +1,6 @@
 import { useRestaurant } from "../../api/hooks/useRestaurant";
 import RatingDetails from "../../shared/ratingDetails/RatingDetails";
+import Notice from "../../shared/notice/Notice";
 import "./RestaurantDetails.scss";
 
 type RestaurantDetailsProps = {
@@ -15,8 +16,27 @@ const RestaurantDetails = ({ restaurantId }: RestaurantDetailsProps) => {
     </div>
   );
 
-  // TODO: add error handling UI with Notice component adapted
-  if (error || !restaurant) return null;
+  if (error) {
+    return (
+      <Notice
+        type="error"
+        heading="Failed to load restaurant"
+        message="We couldn't fetch the restaurant details. Please try again later."
+        showHomeLink={false}
+      />
+    )
+  };
+
+  if (!restaurant) {
+    return (
+      <Notice
+        type="not-found"
+        heading="Restaurant not found"
+        message="The restaurant you're looking for doesn't exist."
+        showHomeLink={false}
+      />
+    )
+  };
 
   return (
     <article className="restaurant-details" aria-labelledby="restaurant-name">

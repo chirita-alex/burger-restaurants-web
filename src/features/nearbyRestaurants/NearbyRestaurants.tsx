@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { useNearbyRestaurants } from "../../api/hooks/useNearbyRestaurants";
 import MapWidget from "../../shared/mapWidget/MapWidget";
+import Notice from "../../shared/notice/Notice";
 import Grid from "./grid/Grid";
 
 const NearbyRestaurants = () => {
@@ -14,8 +15,10 @@ const NearbyRestaurants = () => {
     radius: 5000,
   });
 
+  const restaurants = useMemo(() => nearbyRestaurantsData?.data ?? [], [nearbyRestaurantsData]);
+
   const mapNearbyLocations = useMemo(() => {
-    return (nearbyRestaurantsData?.data || []).map((restaurant) => ({
+    return restaurants.map((restaurant) => ({
       id: restaurant.id,
       latitude: restaurant.geoLocation.latitude,
       longitude: restaurant.geoLocation.longitude,
@@ -26,13 +29,34 @@ const NearbyRestaurants = () => {
         overallRating: restaurant.overallRating.general,
       },
     }));
-  }, [nearbyRestaurantsData]);
+  }, [restaurants]);
 
-  // TODO: add error handling UI with Notice component adapted
+  if (error) {
+    return (
+      <Notice
+        type="error"
+        heading="Failed to load restaurants"
+        message="We couldn't fetch nearby restaurants. Please try again later."
+        showHomeLink={false}
+      />
+    );
+  }
+
+  if (!isLoading && restaurants.length === 0) {
+    return (
+      <Notice
+        type="empty"
+        heading="No restaurants found"
+        message="There are no burger restaurants near your location."
+        showHomeLink={false}
+      />
+    );
+  }
+
   return (
     <>
-      <Grid items={nearbyRestaurantsData?.data || []} isLoading={isLoading} />
-      
+      <Grid items={restaurants} isLoading={isLoading} />
+
       <div style={{ height: "450px" }}>
         <MapWidget
           pins={mapNearbyLocations}

@@ -1,6 +1,7 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 import { useRestaurantReviews } from "../../api/hooks/useRestaurantReviews";
 import { useOnVisible } from "../../hooks/useOnVisible";
+import Notice from "../../shared/notice/Notice";
 import ReviewCard from "./ReviewCard";
 import "./styles.scss";
 
@@ -9,16 +10,41 @@ type RestaurantReviewsProps = {
 };
 
 const RestaurantReviews = ({ restaurantId }: RestaurantReviewsProps) => {
-  const { data, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } =
+  const { data, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage, error } =
     useRestaurantReviews({ restaurantId });
 
-  const reviews = data?.pages.flatMap((page) => page.data) ?? [];
+  const reviews = useMemo(
+    () => data?.pages.flatMap((page) => page.data) ?? [],
+    [data]
+  );
 
   const handleLoadMore = useCallback(() => {
     if (hasNextPage && !isFetchingNextPage) fetchNextPage();
   }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   const sentinelRef = useOnVisible<HTMLLIElement>(handleLoadMore);
+
+  if (error) {
+    return (
+      <Notice
+        type="error"
+        heading="Failed to load reviews"
+        message="We couldn't fetch the reviews. Please try again later."
+        showHomeLink={false}
+      />
+    );
+  }
+
+  if (!isLoading && reviews.length === 0) {
+    return (
+      <Notice
+        type="empty"
+        heading="No reviews yet"
+        message="Be the first to review this restaurant."
+        showHomeLink={false}
+      />
+    );
+  }
 
   return (
     <section className="restaurant-reviews" aria-labelledby="reviews-heading">
