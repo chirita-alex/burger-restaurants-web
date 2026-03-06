@@ -27,17 +27,21 @@ describe('RatingDetails', () => {
   });
 
   it('applies the sm size modifier class', () => {
+    // <dl> has no accessible role in aria-query; container.firstChild accesses the root dl
     const { container } = render(<RatingDetails rating={mockRating} size="sm" />);
+    // eslint-disable-next-line testing-library/no-node-access
     expect(container.firstChild).toHaveClass('rating-details--sm');
   });
 
   it('applies the lg size modifier class', () => {
     const { container } = render(<RatingDetails rating={mockRating} size="lg" />);
+    // eslint-disable-next-line testing-library/no-node-access
     expect(container.firstChild).toHaveClass('rating-details--lg');
   });
 
   it('defaults to md size', () => {
     const { container } = render(<RatingDetails rating={mockRating} />);
+    // eslint-disable-next-line testing-library/no-node-access
     expect(container.firstChild).toHaveClass('rating-details--md');
   });
 });

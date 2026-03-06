@@ -31,6 +31,8 @@ const createWrapper = () => {
 describe('RestaurantReviews - integration', () => {
   it('shows skeleton while loading', () => {
     render(<RestaurantReviews restaurantId="1" />, { wrapper: createWrapper() });
+    // Review skeletons are aria-hidden with no accessible role
+    // eslint-disable-next-line testing-library/no-node-access
     expect(document.querySelector('.restaurant-reviews__skeleton')).toBeInTheDocument();
   });
 

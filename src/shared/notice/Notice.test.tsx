@@ -79,9 +79,9 @@ describe('Notice', () => {
 
   describe('icon', () => {
     it('renders the icon with empty alt (decorative)', () => {
-      const { container } = renderNotice({ type: 'error' });
-      const img = container.querySelector('img');
-      expect(img).toHaveAttribute('alt', '');
+      renderNotice({ type: 'error' });
+      // alt="" images are decorative; query by alt text
+      const img = screen.getByAltText('', { exact: true });
       expect(img).toHaveAttribute('aria-hidden', 'true');
     });
   });

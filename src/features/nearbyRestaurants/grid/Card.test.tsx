@@ -44,9 +44,9 @@ describe('Card', () => {
   });
 
   it('renders the card image with empty alt (decorative)', () => {
-    const { container } = renderCard();
-    const img = container.querySelector('img');
-    expect(img).toHaveAttribute('alt', '');
+    renderCard();
+    // alt="" images are decorative (role="presentation"); query by alt text
+    const img = screen.getByAltText('', { exact: true });
     expect(img).toHaveAttribute('src', '/images/burger-palace.jpg');
   });
 

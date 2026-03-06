@@ -27,6 +27,8 @@ const createWrapper = () => {
 describe('RestaurantDetails - integration', () => {
   it('shows skeleton while loading', () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
+    // Loading skeleton is a plain div with no accessible role
+    // eslint-disable-next-line testing-library/no-node-access
     expect(document.querySelector('.restaurant-details--loading')).toBeInTheDocument();
   });
 

@@ -8,7 +8,7 @@ import prettierConfig from 'eslint-config-prettier'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
-  globalIgnores(['dist']),
+  globalIgnores(['dist', 'coverage', 'public', 'playwright-report']),
   {
     files: ['**/*.{ts,tsx}'],
     extends: [
@@ -26,7 +26,7 @@ export default defineConfig([
   },
   // Testing Library rules scoped to test files only
   {
-    files: ['**/*.test.{ts,tsx}', '**/*.spec.{ts,tsx}', '**/test/**/*.{ts,tsx}'],
+    files: ['src/**/*.test.{ts,tsx}', 'src/**/*.spec.{ts,tsx}', 'src/**/test/**/*.{ts,tsx}'],
     extends: [
       testingLibrary.configs['flat/react'],
     ],

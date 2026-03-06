@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { http, HttpResponse } from 'msw';
@@ -31,7 +31,7 @@ const createWrapper = () => {
 describe('NearbyRestaurants - integration', () => {
   it('shows skeleton cards while loading', () => {
     render(<NearbyRestaurants />, { wrapper: createWrapper() });
-    expect(document.querySelectorAll('.card-skeleton').length).toBeGreaterThan(0);
+    expect(screen.getByRole('list')).toHaveAttribute('aria-busy', 'true');
   });
 
   it('renders restaurant cards after data loads', async () => {
@@ -42,7 +42,7 @@ describe('NearbyRestaurants - integration', () => {
 
   it('renders the map widget after data loads', async () => {
     render(<NearbyRestaurants />, { wrapper: createWrapper() });
-    await waitFor(() => expect(screen.getByTestId('map-widget')).toBeInTheDocument());
+    await screen.findByTestId('map-widget');
   });
 
   it('shows error notice when API fails', async () => {

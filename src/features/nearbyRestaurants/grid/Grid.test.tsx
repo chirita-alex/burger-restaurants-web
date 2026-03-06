@@ -34,6 +34,8 @@ describe('Grid', () => {
   describe('loading state', () => {
     it('renders skeleton cards when loading', () => {
       const { container } = renderGrid({ isLoading: true, skeletonCount: 3 });
+      // Skeletons are aria-hidden with no accessible role — container query is necessary
+      // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
       expect(container.querySelectorAll('.card-skeleton')).toHaveLength(3);
     });
 
@@ -43,8 +45,8 @@ describe('Grid', () => {
     });
 
     it('sets aria-busy to true when loading', () => {
-      const { container } = renderGrid({ isLoading: true });
-      expect(container.querySelector('ul')).toHaveAttribute('aria-busy', 'true');
+      renderGrid({ isLoading: true });
+      expect(screen.getByRole('list')).toHaveAttribute('aria-busy', 'true');
     });
   });
 
@@ -57,16 +59,21 @@ describe('Grid', () => {
 
     it('does not render skeletons when not loading', () => {
       const { container } = renderGrid();
+      // Skeletons are aria-hidden with no accessible role — container query is necessary
+      // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
       expect(container.querySelectorAll('.card-skeleton')).toHaveLength(0);
     });
 
     it('sets aria-busy to false when not loading', () => {
-      const { container } = renderGrid();
-      expect(container.querySelector('ul')).toHaveAttribute('aria-busy', 'false');
+      renderGrid();
+      const grid = screen.getAllByRole('list').find((el) => el.tagName === 'UL')!;
+      expect(grid).toHaveAttribute('aria-busy', 'false');
     });
 
     it('defaults to 6 skeletons when skeletonCount is not provided', () => {
       const { container } = renderGrid({ isLoading: true });
+      // Skeletons are aria-hidden with no accessible role — container query is necessary
+      // eslint-disable-next-line testing-library/no-container, testing-library/no-node-access
       expect(container.querySelectorAll('.card-skeleton')).toHaveLength(6);
     });
   });

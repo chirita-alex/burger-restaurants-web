@@ -50,6 +50,8 @@ describe('Routes', () => {
   describe('RestaurantPage (/restaurant/:id)', () => {
     it('renders restaurant details skeleton initially', () => {
       renderAt('/restaurant/1');
+      // Loading skeleton is a plain div with no accessible role
+      // eslint-disable-next-line testing-library/no-node-access
       expect(document.querySelector('.restaurant-details--loading')).toBeInTheDocument();
     });
 
