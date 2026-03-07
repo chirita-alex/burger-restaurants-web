@@ -43,7 +43,8 @@ describe('RestaurantReviews - integration', () => {
 
   it('renders review cards after data loads', async () => {
     render(<RestaurantReviews restaurantId="1" />, { wrapper: createWrapper() });
-    expect(await screen.findByText(mockReviews[0].description)).toBeInTheDocument();
+    const truncated = mockReviews[0].description.slice(0, 650).trim();
+    expect(await screen.findByText(truncated, { exact: false })).toBeInTheDocument();
   });
 
   it('shows error notice when API fails', async () => {

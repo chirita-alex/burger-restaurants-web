@@ -2,7 +2,8 @@
 
 .read-more {
   &__text {
-    margin: 0;
+    font-size: $font-size-base;
+    color: $color-text;
   }
 
   &__toggle {

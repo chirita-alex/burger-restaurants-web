@@ -2,6 +2,7 @@ import type { Review } from "../../types/review";
 import RatingDetails from "../../shared/ratingDetails/RatingDetails";
 import { prettyDate } from "../../utils/prettyDate";
 import "./styles.scss";
+import ReadMore from "../../shared/readMore/ReadMore";
 
 type ReviewCardProps = {
   review: Review;
@@ -20,9 +21,21 @@ const ReviewCard = ({ review }: ReviewCardProps) => (
       <div className="review-card__content">
         <RatingDetails rating={review.rating} size="lg" />
 
-        <p className="review-card__description">{review.description}</p>
+        {/* Here we would normally fetch the user details based on review.userId, 
+          but for this example, we'll hardcode it. 
+        */}
+        <ReadMore 
+          maxChars={650} 
+          showMoreAriaLabel={"Jhon Doe review"}
+          textClassName="review-card__description"
+         >
+            {review.description}
+        </ReadMore>
 
         <footer className="review-card__footer">
+          {/* Here we would normally fetch the user details based on review.userId, 
+            but for this example, we'll hardcode it. 
+          */}
           <p className="review-card__user">Jhon Doe</p>
 
           <time
