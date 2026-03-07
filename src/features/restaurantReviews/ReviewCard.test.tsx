@@ -22,14 +22,14 @@ describe('ReviewCard', () => {
 
   it('renders the review image with descriptive alt text', () => {
     render(<ul><ReviewCard review={mockReview} /></ul>);
-    const img = screen.getByRole('img', { name: 'Photo of the reviewed burger' });
+    const img = screen.getByRole('img', { name: 'Reviewed burger' });
     expect(img).toHaveAttribute('src', '/images/review-1.jpg');
   });
 
   it('renders the image with lazy loading', () => {
     render(<ul><ReviewCard review={mockReview} /></ul>);
     expect(
-      screen.getByRole('img', { name: 'Photo of the reviewed burger' })
+      screen.getByRole('img', { name: 'Reviewed burger' })
     ).toHaveAttribute('loading', 'lazy');
   });
 

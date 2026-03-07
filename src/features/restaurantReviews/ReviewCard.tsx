@@ -13,7 +13,7 @@ const ReviewCard = ({ review }: ReviewCardProps) => (
       <img
         className="review-card__image"
         src={review.imageUrl}
-        alt="Photo of the reviewed burger"
+        alt="Reviewed burger"
         loading="lazy"
       />
 
