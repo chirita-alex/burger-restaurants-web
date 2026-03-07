@@ -4,10 +4,10 @@ test.describe('Restaurant page', () => {
   test('displays restaurant name, address, hours and description', async ({ page }) => {
     await page.goto('/restaurant/1');
 
-    await expect(page.getByRole('heading', { name: 'Burger House', level: 1 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Burger House', level: 2 })).toBeVisible();
     await expect(page.getByText('Mon-Sun 10:00-22:00')).toBeVisible();
     await expect(page.getByText('Burger St. 1, Bucharest, Romania')).toBeVisible();
-    await expect(page.getByText('Best burgers in town with fresh ingredients')).toBeVisible();
+    await expect(page.getByText('sourced daily from local farms')).toBeVisible();
   });
 
   test('shows skeleton while loading', async ({ page }) => {
@@ -114,5 +114,44 @@ test.describe('Restaurant page', () => {
         page.getByRole('heading', { name: 'No reviews yet' })
       ).toBeVisible();
     });
+  });
+});
+
+test.describe('ReadMore — restaurant description', () => {
+  test('shows truncated description with "Read more" button on load', async ({ page }) => {
+    await page.goto('/restaurant/1');
+    await expect(page.getByRole('button', { name: 'Read more: restaurant description' })).toBeVisible();
+    // text beyond 300 chars is not rendered
+    await expect(page.getByText('Our signature sauces')).not.toBeVisible();
+  });
+
+  test('expands description on "Read more" click', async ({ page }) => {
+    await page.goto('/restaurant/1');
+    await page.getByRole('button', { name: 'Read more: restaurant description' }).click();
+    await expect(page.getByText('Our signature sauces')).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Show less: restaurant description' })).toBeVisible();
+  });
+
+  test('collapses description on "Show less" click', async ({ page }) => {
+    await page.goto('/restaurant/1');
+    await page.getByRole('button', { name: 'Read more: restaurant description' }).click();
+    await page.getByRole('button', { name: 'Show less: restaurant description' }).click();
+    await expect(page.getByText('Our signature sauces')).not.toBeVisible();
+    await expect(page.getByRole('button', { name: 'Read more: restaurant description' })).toBeVisible();
+  });
+});
+
+test.describe('ReadMore — review cards', () => {
+  test('shows "Read more" button for long reviews', async ({ page }) => {
+    await page.goto('/restaurant/1');
+    // review-1 is ~1320 chars, well above the 650 maxChars limit
+    await expect(page.getByRole('button', { name: 'Read more: Jhon Doe review' }).first()).toBeVisible();
+  });
+
+  test('expands a review on "Read more" click', async ({ page }) => {
+    await page.goto('/restaurant/1');
+    const readMoreBtn = page.getByRole('button', { name: 'Read more: Jhon Doe review' }).first();
+    await readMoreBtn.click();
+    await expect(page.getByRole('button', { name: 'Show less: Jhon Doe review' }).first()).toBeVisible();
   });
 });

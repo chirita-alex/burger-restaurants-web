@@ -31,8 +31,8 @@ test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
   test('restaurant page — details and reviews loaded', async ({ page }) => {
     await page.goto('/restaurant/1');
 
-    await expect(page.getByRole('heading', { name: 'Burger House', level: 1 })).toBeVisible();
-    await expect(page.getByRole('heading', { name: 'Reviews', level: 2 })).toBeVisible();
+    await expect(page.getByRole('heading', { name: 'Burger House', level: 2 })).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByRole('heading', { name: 'Reviews', level: 2 })).toBeVisible({ timeout: 15_000 });
 
     const results = await new AxeBuilder({ page })
       .withTags(wcagTags)

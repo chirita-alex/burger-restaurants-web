@@ -4,10 +4,10 @@ import RatingDetails from './RatingDetails';
 import type { Rating } from '../../types/restaurant';
 
 const mockRating: Rating = {
-  taste: 8,
-  texture: 7,
-  visual: 9,
-  general: 8,
+  taste: 4,
+  texture: 3.5,
+  visual: 4.5,
+  general: 4,
 };
 
 describe('RatingDetails', () => {
@@ -21,9 +21,9 @@ describe('RatingDetails', () => {
 
   it('renders all four rating values', () => {
     render(<RatingDetails rating={mockRating} />);
-    expect(screen.getAllByText('8')).toHaveLength(2);
-    expect(screen.getByText('7')).toBeInTheDocument();
-    expect(screen.getByText('9')).toBeInTheDocument();
+    expect(screen.getAllByText('4/5')).toHaveLength(2);
+    expect(screen.getByText('3.5/5')).toBeInTheDocument();
+    expect(screen.getByText('4.5/5')).toBeInTheDocument();
   });
 
   it('applies the sm size modifier class', () => {
