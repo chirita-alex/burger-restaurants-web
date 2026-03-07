@@ -41,6 +41,8 @@ const Notice = ({ type: typeProp, heading: headingProp, message: messageProp, sh
   const resolvedType = typeProp
     ?? (isRouteErrorResponse(error) ? (STATUS_TYPE[error.status] ?? "error") : "error");
 
+  // resolvedType is always a controlled NoticeType value, never user input
+  // eslint-disable-next-line security/detect-object-injection
   const { heading: defaultHeading, message: defaultMessage, icon } = TYPE_CONFIG[resolvedType];
 
   return (

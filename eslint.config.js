@@ -6,6 +6,7 @@ import tseslint from 'typescript-eslint'
 import react from 'eslint-plugin-react'
 import sonarjs from 'eslint-plugin-sonarjs'
 import tanstackQuery from '@tanstack/eslint-plugin-query'
+import security from 'eslint-plugin-security'
 import testingLibrary from 'eslint-plugin-testing-library'
 import prettierConfig from 'eslint-config-prettier'
 import { defineConfig, globalIgnores } from 'eslint/config'
@@ -22,6 +23,7 @@ export default defineConfig([
       reactRefresh.configs.vite,
       sonarjs.configs.recommended,
       tanstackQuery.configs['flat/recommended'],
+      security.configs.recommended,
       // Must be last — disables ESLint rules that conflict with Prettier formatting
       prettierConfig,
     ],

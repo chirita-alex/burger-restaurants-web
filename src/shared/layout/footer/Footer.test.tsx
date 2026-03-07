@@ -5,6 +5,8 @@ import Footer from './Footer';
 describe('Footer', () => {
   it('renders the current year', () => {
     render(<Footer />);
+    // Year is a safe integer-to-string conversion, not user input
+    // eslint-disable-next-line security/detect-non-literal-regexp
     expect(screen.getByText(new RegExp(String(new Date().getFullYear())))).toBeInTheDocument();
   });
 
