@@ -38,14 +38,12 @@ describe('RestaurantReviews - integration', () => {
 
   it('renders the Reviews heading', async () => {
     render(<RestaurantReviews restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByRole('heading', { name: 'Reviews' });
-    expect(screen.getByRole('heading', { name: 'Reviews' })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: 'Reviews' })).toBeInTheDocument();
   });
 
   it('renders review cards after data loads', async () => {
     render(<RestaurantReviews restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByText(mockReviews[0].description);
-    expect(screen.getByText(mockReviews[0].description)).toBeInTheDocument();
+    expect(await screen.findByText(mockReviews[0].description)).toBeInTheDocument();
   });
 
   it('shows error notice when API fails', async () => {
@@ -55,7 +53,7 @@ describe('RestaurantReviews - integration', () => {
       )
     );
     render(<RestaurantReviews restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByText('Failed to load reviews');
+    expect(await screen.findByText('Failed to load reviews')).toBeInTheDocument();
   });
 
   it('shows empty notice when API returns no reviews', async () => {
@@ -65,6 +63,6 @@ describe('RestaurantReviews - integration', () => {
       )
     );
     render(<RestaurantReviews restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByText('No reviews yet');
+    expect(await screen.findByText('No reviews yet')).toBeInTheDocument();
   });
 });

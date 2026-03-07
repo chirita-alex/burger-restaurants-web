@@ -34,29 +34,28 @@ describe('RestaurantDetails - integration', () => {
 
   it('renders restaurant name after data loads', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByRole('heading', { name: mockRestaurant.name });
-    expect(screen.getByRole('heading', { name: mockRestaurant.name })).toBeInTheDocument();
+    expect(await screen.findByRole('heading', { name: mockRestaurant.name })).toBeInTheDocument();
   });
 
   it('renders opening hours', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByText(mockRestaurant.program.openingHours);
+    expect(await screen.findByText(mockRestaurant.program.openingHours)).toBeInTheDocument();
   });
 
   it('renders the address', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByText(mockRestaurant.address.street, { exact: false });
+    expect(await screen.findByText(mockRestaurant.address.street, { exact: false })).toBeInTheDocument();
     expect(screen.getByText(mockRestaurant.address.city, { exact: false })).toBeInTheDocument();
   });
 
   it('renders the description', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByText(mockRestaurant.description);
+    expect(await screen.findByText(mockRestaurant.description)).toBeInTheDocument();
   });
 
   it('renders rating details', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByText('Taste');
+    expect(await screen.findByText('Taste')).toBeInTheDocument();
     expect(screen.getByText('General')).toBeInTheDocument();
   });
 
@@ -67,7 +66,7 @@ describe('RestaurantDetails - integration', () => {
       )
     );
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    await screen.findByText('Failed to load restaurant');
+    expect(await screen.findByText('Failed to load restaurant')).toBeInTheDocument();
   });
 
   it('shows not-found notice when restaurant data is missing', async () => {
@@ -77,6 +76,6 @@ describe('RestaurantDetails - integration', () => {
       )
     );
     render(<RestaurantDetails restaurantId="999" />, { wrapper: createWrapper() });
-    await screen.findByText('Restaurant not found');
+    expect(await screen.findByText('Restaurant not found')).toBeInTheDocument();
   });
 });

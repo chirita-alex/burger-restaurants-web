@@ -36,13 +36,12 @@ describe('NearbyRestaurants - integration', () => {
 
   it('renders restaurant cards after data loads', async () => {
     render(<NearbyRestaurants />, { wrapper: createWrapper() });
-    await screen.findByText(mockNearbyRestaurants[0].name);
-    expect(screen.getByText(mockNearbyRestaurants[0].name)).toBeInTheDocument();
+    expect(await screen.findByText(mockNearbyRestaurants[0].name)).toBeInTheDocument();
   });
 
   it('renders the map widget after data loads', async () => {
     render(<NearbyRestaurants />, { wrapper: createWrapper() });
-    await screen.findByTestId('map-widget');
+    expect(await screen.findByTestId('map-widget')).toBeInTheDocument();
   });
 
   it('shows error notice when API fails', async () => {
@@ -52,7 +51,7 @@ describe('NearbyRestaurants - integration', () => {
       )
     );
     render(<NearbyRestaurants />, { wrapper: createWrapper() });
-    await screen.findByText('Failed to load restaurants');
+    expect(await screen.findByText('Failed to load restaurants')).toBeInTheDocument();
   });
 
   it('shows empty notice when API returns no restaurants', async () => {
@@ -62,6 +61,6 @@ describe('NearbyRestaurants - integration', () => {
       )
     );
     render(<NearbyRestaurants />, { wrapper: createWrapper() });
-    await screen.findByText('No restaurants found');
+    expect(await screen.findByText('No restaurants found')).toBeInTheDocument();
   });
 });

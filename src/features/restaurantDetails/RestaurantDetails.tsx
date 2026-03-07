@@ -61,6 +61,7 @@ const RestaurantDetails = ({ restaurantId }: RestaurantDetailsProps) => {
         </dl>
         <RatingDetails rating={restaurant.overallRating} size="md" />
 
+        {/* eslint-disable-next-line sonarjs/todo-tag */}
         {/* TODO: add more details READ MORE when you make it for review card */}
         <p className="restaurant-details__description">{restaurant.description}</p>
       </div>

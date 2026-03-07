@@ -43,7 +43,7 @@ describe('Routes', () => {
 
     it('renders nearby restaurant cards after data loads', async () => {
       renderAt('/');
-      await screen.findByText(mockNearbyRestaurants[0].name);
+      expect(await screen.findByText(mockNearbyRestaurants[0].name)).toBeInTheDocument();
     });
   });
 
@@ -57,14 +57,14 @@ describe('Routes', () => {
 
     it('renders restaurant name after data loads', async () => {
       renderAt('/restaurant/1');
-      await screen.findByRole('heading', { level: 1 });
+      expect(await screen.findByRole('heading', { level: 1 })).toBeInTheDocument();
     });
   });
 
   describe('Unknown route (404)', () => {
     it('renders the not-found notice for an unknown path', async () => {
       renderAt('/this-route-does-not-exist');
-      await screen.findByText('Page not found');
+      expect(await screen.findByText('Page not found')).toBeInTheDocument();
     });
   });
 });

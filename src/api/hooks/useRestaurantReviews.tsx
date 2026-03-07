@@ -6,7 +6,7 @@ export const useRestaurantReviews = (
   params: Omit<ReviewsParams, "cursor">
 ): UseInfiniteQueryResult<InfiniteData<ReviewsResponse, unknown>, ApiError> => {
   return useInfiniteQuery<ReviewsResponse, ApiError>({
-    queryKey: ["reviews", params.restaurantId],
+    queryKey: ["reviews", params],
     queryFn: ({ pageParam }) =>
       getRestaurantReviews({
         ...params,
