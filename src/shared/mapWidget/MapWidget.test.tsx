@@ -1,15 +1,24 @@
-import { describe, it, expect, vi } from 'vitest';
+import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import MapWidget from './MapWidget';
+
+let shouldMapThrow = false;
 
 vi.mock('leaflet', () => ({
   default: { icon: vi.fn(() => ({})) },
 }));
 
-vi.mock('react-leaflet', () => ({
-  MapContainer: ({ children }: { children: React.ReactNode }) => (
-    <div data-testid="map-container">{children}</div>
+vi.mock('../notice/Notice', () => ({
+  default: ({ heading, message }: { heading: string; message: string }) => (
+    <div role="alert">{heading}: {message}</div>
   ),
+}));
+
+vi.mock('react-leaflet', () => ({
+  MapContainer: ({ children }: { children: React.ReactNode }) => {
+    if (shouldMapThrow) throw new Error('Leaflet failed');
+    return <div data-testid="map-container">{children}</div>;
+  },
   TileLayer: () => null,
   Marker: ({ children, title }: { children: React.ReactNode; title: string }) => (
     <div data-testid="map-marker" title={title}>{children}</div>
@@ -60,5 +69,28 @@ describe('MapWidget', () => {
       />
     );
     expect(screen.getByText('Tooltip: Burger Palace')).toBeInTheDocument();
+  });
+});
+
+describe('MapWidget — ErrorBoundary', () => {
+  beforeEach(() => {
+    shouldMapThrow = true;
+    vi.spyOn(console, 'error').mockImplementation(() => {});
+  });
+
+  afterEach(() => {
+    shouldMapThrow = false;
+    vi.restoreAllMocks();
+  });
+
+  it('renders the fallback when MapContainer throws', () => {
+    render(<MapWidget pins={[]} />);
+    expect(screen.getByRole('alert')).toBeInTheDocument();
+    expect(screen.getByText(/map unavailable/i)).toBeInTheDocument();
+  });
+
+  it('does not render the map section when an error is thrown', () => {
+    render(<MapWidget pins={[]} />);
+    expect(screen.queryByRole('region', { name: 'Interactive map' })).not.toBeInTheDocument();
   });
 });
