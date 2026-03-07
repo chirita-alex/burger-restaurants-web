@@ -5,6 +5,8 @@ import Notice from "../../shared/notice/Notice";
 import Grid from "./grid/Grid";
 
 const NearbyRestaurants = () => {
+  // Here normally will be a useGeoLocation hook to get user location and get real nearby restaurants 
+  // but for the purpose of this task we will use hardcoded coordinates of Bucharest city center
   const {
     data: nearbyRestaurantsData,
     isLoading,
@@ -61,7 +63,7 @@ const NearbyRestaurants = () => {
         <MapWidget
           pins={nearbyLocationsPins}
           renderTooltip={(tooltip) => (
-            <article aria-labelledby={`restaurant-${tooltip.id}`}>
+            <article aria-labelledby={`restaurant-${tooltip.id}`} aria-live="polite">
               <h4 id={`restaurant-${tooltip.id}`} style={{ textAlign: "center" }}>
                 {tooltip.name}
               </h4>

@@ -54,16 +54,13 @@ const MapWidget = <T = Record<string, unknown>,>({
             key={pin.id}
             position={[pin.latitude, pin.longitude]}
             icon={pinIcon}
-            title={(
-                pin?.tooltip?.name ? 
-                `Open details for ${pin.tooltip.name}` : "Map pin open for available details"
-            )}
-            alt="Map pin"
+            title={pin.tooltip?.name ? `${pin.tooltip.name} — click to open details` : 'Map pin'}
+            alt={pin.tooltip?.name ? `Map pin for ${pin.tooltip.name}` : 'Map pin'}
             keyboard={true}
           >
             {pin.tooltip && renderTooltip && (
               <Popup>
-                  {renderTooltip(pin.tooltip)}
+                {renderTooltip(pin.tooltip)}
               </Popup>
             )}
           </Marker>

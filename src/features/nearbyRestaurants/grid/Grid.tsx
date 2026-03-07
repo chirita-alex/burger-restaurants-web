@@ -10,7 +10,12 @@ type GridProps = {
 };
 
 const Grid = ({ items, isLoading = false, skeletonCount = 6 }: GridProps) => (
-  <ul className="grid" aria-busy={isLoading}>
+  <ul
+    className="grid"
+    aria-label="Nearby restaurants"
+    aria-busy={isLoading}
+    aria-live="polite"
+  >
     {
       isLoading
         ? Array.from({ length: skeletonCount }, (_, i) => <CardSkeleton key={i} />)

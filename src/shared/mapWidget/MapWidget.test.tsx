@@ -42,14 +42,14 @@ describe('MapWidget', () => {
 
   it('sets the marker title from the pin tooltip name', () => {
     render(<MapWidget pins={mockPins} />);
-    expect(screen.getByTitle('Open details for Burger Palace')).toBeInTheDocument();
-    expect(screen.getByTitle('Open details for Stack House')).toBeInTheDocument();
+    expect(screen.getByTitle('Burger Palace — click to open details')).toBeInTheDocument();
+    expect(screen.getByTitle('Stack House — click to open details')).toBeInTheDocument();
   });
 
   it('uses a fallback title when tooltip is absent', () => {
     const pinsWithoutTooltip = [{ id: 'pin-1', latitude: 44.43, longitude: 26.10 }];
     render(<MapWidget pins={pinsWithoutTooltip} />);
-    expect(screen.getByTitle('Map pin open for available details')).toBeInTheDocument();
+    expect(screen.getByTitle('Map pin')).toBeInTheDocument();
   });
 
   it('renders tooltip content via renderTooltip', () => {
