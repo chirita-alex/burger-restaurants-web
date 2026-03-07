@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { http, HttpResponse } from 'msw';
@@ -45,12 +45,24 @@ describe('RestaurantDetails - integration', () => {
   it('renders the address', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
     expect(await screen.findByText(mockRestaurant.address.street, { exact: false })).toBeInTheDocument();
-    expect(screen.getByText(mockRestaurant.address.city, { exact: false })).toBeInTheDocument();
+    expect(screen.getByText((_, el) => el?.tagName === 'DD' && (el.textContent ?? '').includes(mockRestaurant.address.city))).toBeInTheDocument();
   });
 
-  it('renders the description', async () => {
+  it('renders the truncated description via ReadMore', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    expect(await screen.findByText(mockRestaurant.description)).toBeInTheDocument();
+    const truncated = mockRestaurant.description.slice(0, 300).trim();
+    expect(await screen.findByText(truncated, { exact: false })).toBeInTheDocument();
+  });
+
+  it('shows Read more button for long description', async () => {
+    render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
+    expect(await screen.findByRole('button', { name: /read more: restaurant description/i })).toBeInTheDocument();
+  });
+
+  it('expands full description when Read more is clicked', async () => {
+    render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
+    fireEvent.click(await screen.findByRole('button', { name: /read more: restaurant description/i }));
+    expect(screen.getByText(mockRestaurant.description)).toBeInTheDocument();
   });
 
   it('renders rating details', async () => {

@@ -1,6 +1,7 @@
 import { useRestaurant } from "../../api/hooks/useRestaurant";
 import RatingDetails from "../../shared/ratingDetails/RatingDetails";
 import Notice from "../../shared/notice/Notice";
+import ReadMore from "../../shared/readMore/ReadMore";
 import "./RestaurantDetails.scss";
 
 type RestaurantDetailsProps = {
@@ -61,9 +62,13 @@ const RestaurantDetails = ({ restaurantId }: RestaurantDetailsProps) => {
         </dl>
         <RatingDetails rating={restaurant.overallRating} size="md" />
 
-        {/* eslint-disable-next-line sonarjs/todo-tag */}
-        {/* TODO: add ReadMore to review card description */}
-        <p className="restaurant-details__description">{restaurant.description}</p>
+        <ReadMore 
+          maxChars={300} 
+          showMoreAriaLabel="restaurant description" 
+          textClassName="restaurant-details__description"
+        >
+          {restaurant.description}
+        </ReadMore>
       </div>
     </article>
   );

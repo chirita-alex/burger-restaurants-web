@@ -7,7 +7,7 @@ export const mockRestaurant: Restaurant = {
   imageUrl: '/images/restaurants/restaurant_3.webp',
   createdAt: new Date('2024-01-01'),
   updatedAt: new Date('2024-01-01'),
-  description: 'Best burgers in town with fresh ingredients',
+  description: 'Burger House has been serving the finest handcrafted burgers in Bucharest since 2018. Every patty is made from a custom blend of chuck and brisket, sourced daily from local farms and ground in-house each morning. The brioche buns are baked fresh by a nearby artisan bakery and delivered before opening time. Our signature sauces — smoky chipotle, truffle aioli, and house-made thousand island — are prepared from scratch using recipes perfected over years of iteration. Beyond the burgers, the crispy shoestring fries are double-fried in sunflower oil for that perfect golden crunch, and the seasonal milkshakes rotate every month to keep regulars coming back for something new. The dining room seats 60 guests across two floors, with an open kitchen so you can watch every order being assembled by our team. Whether you are grabbing a quick lunch or settling in for a long dinner, Burger House is the place where quality meets comfort.'.repeat(2),
   program: { openingHours: 'Mon-Sun 10:00-22:00' },
   address: { country: 'Romania', city: 'Bucharest', street: 'Burger St. 1' },
   geoLocation: { latitude: 44.4268, longitude: 26.1025 },

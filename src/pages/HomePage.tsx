@@ -5,7 +5,7 @@ const HomePage = () => {
     <>
       <title>Nearby restaurants</title>
       <h1 style={{ margin: "auto" }}>Find nearby restaurants with best burgers</h1>
-      <NearbyRestaurants />;
+      <NearbyRestaurants />
     </>
   )
 };
