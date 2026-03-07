@@ -21,7 +21,7 @@ const RatingDetails = ({ rating, size = "md" }: RatingDetailsProps) => (
         {/* eslint-disable-next-line security/detect-object-injection */}
         <dt className="rating-details__label">{LABELS[key]}</dt>
         {/* eslint-disable-next-line security/detect-object-injection */}
-        <dd className="rating-details__value">{rating[key]}</dd>
+        <dd className="rating-details__value">{rating[key]}/5</dd>
       </div>
     ))}
   </dl>

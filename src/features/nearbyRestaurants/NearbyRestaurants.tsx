@@ -71,7 +71,7 @@ const NearbyRestaurants = () => {
                 <dt>Program</dt>
                 <dd>{tooltip.openingHours}</dd>
                 <dt>General rating</dt>
-                <dd>{tooltip.overallRating}</dd>
+                <dd>{tooltip.overallRating}/5</dd>
               </dl>
             </article>
           )}
