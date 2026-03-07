@@ -46,9 +46,9 @@ const RestaurantDetails = ({ restaurantId }: RestaurantDetailsProps) => {
         alt={restaurant.name}
       />
       <div className="restaurant-details__info">
-        <h1 className="restaurant-details__name" id="restaurant-name">
+        <h2 className="restaurant-details__name" id="restaurant-name">
           {restaurant.name}
-        </h1>
+        </h2>
         <dl className="restaurant-details__meta">
           <dt>Program</dt>
           <dd>{restaurant.program.openingHours}</dd>
@@ -62,7 +62,7 @@ const RestaurantDetails = ({ restaurantId }: RestaurantDetailsProps) => {
         <RatingDetails rating={restaurant.overallRating} size="md" />
 
         {/* eslint-disable-next-line sonarjs/todo-tag */}
-        {/* TODO: add more details READ MORE when you make it for review card */}
+        {/* TODO: add ReadMore to review card description */}
         <p className="restaurant-details__description">{restaurant.description}</p>
       </div>
     </article>

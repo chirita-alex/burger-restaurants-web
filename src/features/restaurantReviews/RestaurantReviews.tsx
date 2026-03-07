@@ -49,7 +49,7 @@ const RestaurantReviews = ({ restaurantId }: RestaurantReviewsProps) => {
   return (
     <section className="restaurant-reviews" aria-labelledby="reviews-heading">
       <header className="restaurant-reviews__header">
-        <h2 className="restaurant-reviews__title" id="reviews-heading">
+        <h2 id="reviews-heading">
           Reviews
         </h2>
       </header>
