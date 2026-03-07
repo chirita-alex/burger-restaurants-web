@@ -36,7 +36,7 @@ const NearbyRestaurants = () => {
       <Notice
         type="error"
         heading="Failed to load restaurants"
-        message="We couldn't fetch nearby restaurants. Please try again later."
+        message={error.message}
         showHomeLink={false}
       />
     );

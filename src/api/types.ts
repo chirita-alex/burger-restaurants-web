@@ -30,5 +30,5 @@ export type CreateReviewPayload = Omit<Review, 'id'>;
 export type ApiError = {
   message: string;
   status: number;
-  code?: string; // e.g. RESTAURANT_NOT_FOUND or VALIDATION_ERROR?? 
+  code?: string; // e.g. RESTAURANT_NOT_FOUND or VALIDATION_ERROR??
 }

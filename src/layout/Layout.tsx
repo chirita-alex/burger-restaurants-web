@@ -1,10 +1,11 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, ScrollRestoration } from "react-router-dom";
 import Header from "../shared/layout/header/Header";
 import Footer from "../shared/layout/footer/Footer";
 import "./Layout.scss";
 
 const Layout = () => (
   <div className="layout">
+    <ScrollRestoration />
     <Header />
     <main className="content">
       <Outlet />

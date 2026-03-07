@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const wcagTags = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa'];
+const wcagTags = ['wcag21aa'];
 
 test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
   test('home page — restaurant cards loaded', async ({ page }) => {

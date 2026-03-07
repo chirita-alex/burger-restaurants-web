@@ -21,7 +21,7 @@ const RestaurantDetails = ({ restaurantId }: RestaurantDetailsProps) => {
       <Notice
         type="error"
         heading="Failed to load restaurant"
-        message="We couldn't fetch the restaurant details. Please try again later."
+        message={error.message}
         showHomeLink={false}
       />
     )

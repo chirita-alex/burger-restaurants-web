@@ -29,7 +29,7 @@ const RestaurantReviews = ({ restaurantId }: RestaurantReviewsProps) => {
       <Notice
         type="error"
         heading="Failed to load reviews"
-        message="We couldn't fetch the reviews. Please try again later."
+        message={error.message}
         showHomeLink={false}
       />
     );
