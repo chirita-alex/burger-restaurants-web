@@ -1,8 +1,8 @@
-import "./styles.scss";
+import './styles.scss';
 
-import type { NearbyRestaurant } from "../../../types/restaurant";
-import Card from "./Card";
-import CardSkeleton from "./CardSkeleton";
+import type { NearbyRestaurant } from '../../../types/restaurant';
+import Card from './Card';
+import CardSkeleton from './CardSkeleton';
 
 type GridProps = {
   items: NearbyRestaurant[];
@@ -11,17 +11,10 @@ type GridProps = {
 };
 
 const Grid = ({ items, isLoading = false, skeletonCount = 6 }: GridProps) => (
-  <ul
-    className="grid"
-    aria-label="Nearby restaurants"
-    aria-busy={isLoading}
-    aria-live="polite"
-  >
-    {
-      isLoading
-        ? Array.from({ length: skeletonCount }, (_, i) => <CardSkeleton key={i} />)
-        : items.map((item) => <Card key={item.id} item={item}  />)
-    }
+  <ul className="grid" aria-label="Nearby restaurants" aria-busy={isLoading} aria-live="polite">
+    {isLoading
+      ? Array.from({ length: skeletonCount }, (_, i) => <CardSkeleton key={i} />)
+      : items.map((item) => <Card key={item.id} item={item} />)}
   </ul>
 );
 

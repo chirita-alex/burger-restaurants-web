@@ -1,12 +1,12 @@
-import { useMemo } from "react";
+import { useMemo } from 'react';
 
-import { useNearbyRestaurants } from "../../api/hooks/useNearbyRestaurants";
-import MapWidget from "../../shared/mapWidget/MapWidget";
-import Notice from "../../shared/notice/Notice";
-import Grid from "./grid/Grid";
+import { useNearbyRestaurants } from '../../api/hooks/useNearbyRestaurants';
+import MapWidget from '../../shared/mapWidget/MapWidget';
+import Notice from '../../shared/notice/Notice';
+import Grid from './grid/Grid';
 
 const NearbyRestaurants = () => {
-  // Here normally will be a useGeoLocation hook to get user location and get real nearby restaurants 
+  // Here normally will be a useGeoLocation hook to get user location and get real nearby restaurants
   // but for the purpose of this task we will use hardcoded coordinates of Bucharest city center
   const {
     data: nearbyRestaurantsData,
@@ -60,12 +60,12 @@ const NearbyRestaurants = () => {
     <>
       <Grid items={restaurants} isLoading={isLoading} />
 
-      <div style={{ height: "450px" }}>
+      <div style={{ height: '450px' }}>
         <MapWidget
           pins={nearbyLocationsPins}
           renderTooltip={(tooltip) => (
             <article aria-labelledby={`restaurant-${tooltip.id}`} aria-live="polite">
-              <h4 id={`restaurant-${tooltip.id}`} style={{ textAlign: "center" }}>
+              <h4 id={`restaurant-${tooltip.id}`} style={{ textAlign: 'center' }}>
                 {tooltip.name}
               </h4>
               <dl>

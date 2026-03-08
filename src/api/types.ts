@@ -1,5 +1,5 @@
-import type { NearbyRestaurant } from "../types/restaurant";
-import type { Review } from "../types/review";
+import type { NearbyRestaurant } from '../types/restaurant';
+import type { Review } from '../types/review';
 
 export type PaginatedParams<T = object> = T & {
   cursor?: string;
@@ -31,4 +31,4 @@ export type ApiError = {
   message: string;
   status: number;
   code?: string; // e.g. RESTAURANT_NOT_FOUND or VALIDATION_ERROR??
-}
+};

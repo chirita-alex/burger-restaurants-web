@@ -1,4 +1,4 @@
-import { expect,test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('Home page', () => {
   test('displays restaurant cards after loading', async ({ page }) => {
@@ -20,16 +20,14 @@ test.describe('Home page', () => {
     test.use({ serviceWorkers: 'block' });
 
     test('shows error notice when API fails', async ({ page }) => {
-      await page.route('**/api/v1/restaurants/nearby**', (route) =>
-        route.fulfill({ status: 500 })
-      );
+      await page.route('**/api/v1/restaurants/nearby**', (route) => route.fulfill({ status: 500 }));
 
       await page.goto('/');
 
       // React Query retries twice with exponential backoff (~6s total before showing error)
-      await expect(
-        page.getByRole('heading', { name: 'Failed to load restaurants' })
-      ).toBeVisible({ timeout: 15_000 });
+      await expect(page.getByRole('heading', { name: 'Failed to load restaurants' })).toBeVisible({
+        timeout: 15_000,
+      });
     });
 
     test('shows empty notice when no restaurants returned', async ({ page }) => {
@@ -43,9 +41,7 @@ test.describe('Home page', () => {
 
       await page.goto('/');
 
-      await expect(
-        page.getByRole('heading', { name: 'No restaurants found' })
-      ).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'No restaurants found' })).toBeVisible();
     });
   });
 

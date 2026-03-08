@@ -1,5 +1,5 @@
-import { act,render, renderHook } from '@testing-library/react';
-import { afterEach,beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, render, renderHook } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { useOnVisible } from './useOnVisible';
 
@@ -11,14 +11,17 @@ beforeEach(() => {
   mockObserve.mockReset();
   mockDisconnect.mockReset();
 
-  vi.stubGlobal('IntersectionObserver', class {
-    constructor(callback: IntersectionObserverCallback) {
-      triggerIntersection = (isIntersecting: boolean) =>
-        callback([{ isIntersecting } as IntersectionObserverEntry], {} as IntersectionObserver);
+  vi.stubGlobal(
+    'IntersectionObserver',
+    class {
+      constructor(callback: IntersectionObserverCallback) {
+        triggerIntersection = (isIntersecting: boolean) =>
+          callback([{ isIntersecting } as IntersectionObserverEntry], {} as IntersectionObserver);
+      }
+      observe = mockObserve;
+      disconnect = mockDisconnect;
     }
-    observe = mockObserve;
-    disconnect = mockDisconnect;
-  });
+  );
 });
 
 afterEach(() => {

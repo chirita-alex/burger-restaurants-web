@@ -1,4 +1,4 @@
-import type { ApiError } from "../types";
+import type { ApiError } from '../types';
 
 const NO_RETRY_STATUSES = [401, 404];
 

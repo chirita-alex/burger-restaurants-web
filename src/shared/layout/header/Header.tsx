@@ -1,6 +1,6 @@
-import "./Header.scss";
+import './Header.scss';
 
-import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -11,10 +11,7 @@ const Header = () => {
       <nav aria-label="Main navigation">
         <ul className="nav">
           <li>
-            <Link
-              to="/"
-              aria-label="Nearby restaurants page"
-            >
+            <Link to="/" aria-label="Nearby restaurants page">
               Nearby restaurants
             </Link>
           </li>

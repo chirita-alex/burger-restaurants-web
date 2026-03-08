@@ -1,17 +1,17 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import react from 'eslint-plugin-react'
-import sonarjs from 'eslint-plugin-sonarjs'
-import tanstackQuery from '@tanstack/eslint-plugin-query'
-import security from 'eslint-plugin-security'
-import jsxA11y from 'eslint-plugin-jsx-a11y'
-import testingLibrary from 'eslint-plugin-testing-library'
-import prettierConfig from 'eslint-config-prettier'
-import simpleImportSort from 'eslint-plugin-simple-import-sort'
-import { defineConfig, globalIgnores } from 'eslint/config'
+import js from '@eslint/js';
+import globals from 'globals';
+import reactHooks from 'eslint-plugin-react-hooks';
+import reactRefresh from 'eslint-plugin-react-refresh';
+import tseslint from 'typescript-eslint';
+import react from 'eslint-plugin-react';
+import sonarjs from 'eslint-plugin-sonarjs';
+import tanstackQuery from '@tanstack/eslint-plugin-query';
+import security from 'eslint-plugin-security';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import testingLibrary from 'eslint-plugin-testing-library';
+import prettierConfig from 'eslint-config-prettier';
+import simpleImportSort from 'eslint-plugin-simple-import-sort';
+import { defineConfig, globalIgnores } from 'eslint/config';
 
 export default defineConfig([
   globalIgnores(['dist', 'coverage', 'public', 'playwright-report']),
@@ -48,8 +48,6 @@ export default defineConfig([
   // Testing Library rules scoped to test files only
   {
     files: ['src/**/*.test.{ts,tsx}', 'src/**/*.spec.{ts,tsx}', 'src/**/test/**/*.{ts,tsx}'],
-    extends: [
-      testingLibrary.configs['flat/react'],
-    ],
+    extends: [testingLibrary.configs['flat/react']],
   },
-])
+]);

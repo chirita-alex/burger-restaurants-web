@@ -3,7 +3,7 @@ import 'leaflet/dist/leaflet.css';
 
 import L from 'leaflet';
 import { ErrorBoundary } from 'react-error-boundary';
-import { MapContainer, Marker, Popup,TileLayer } from 'react-leaflet';
+import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
 
 import Notice from '../notice/Notice';
 
@@ -34,7 +34,7 @@ type MapWidgetProps<T = Record<string, unknown>> = {
 const DEFAULT_CENTER: [number, number] = [44.4268, 26.1025];
 const DEFAULT_ZOOM = 13;
 
-const MapWidget = <T = Record<string, unknown>>({
+const MapWidget = <T = Record<string, unknown>,>({
   pins,
   renderTooltip,
   center = DEFAULT_CENTER,
@@ -51,14 +51,14 @@ const MapWidget = <T = Record<string, unknown>>({
           showHomeLink={false}
         />
       }
-    > 
+    >
       <section aria-label={ariaLabel} style={{ width: '100%', height: '100%' }}>
         <MapContainer
           center={center}
           zoom={zoom}
           scrollWheelZoom={false}
           className="mapWidgetStyles"
-        > 
+        >
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

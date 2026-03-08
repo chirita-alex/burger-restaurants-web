@@ -1,6 +1,6 @@
-import "./ReadMore.scss";
+import './ReadMore.scss';
 
-import { useId, useState } from "react";
+import { useId, useState } from 'react';
 
 type ReadMoreProps = {
   children: string;
@@ -9,7 +9,12 @@ type ReadMoreProps = {
   showMoreAriaLabel?: string;
 };
 
-const ReadMore = ({ children, maxChars = 200, textClassName = "read-more__text", showMoreAriaLabel }: ReadMoreProps) => {
+const ReadMore = ({
+  children,
+  maxChars = 200,
+  textClassName = 'read-more__text',
+  showMoreAriaLabel,
+}: ReadMoreProps) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const textId = useId();
 
@@ -17,15 +22,20 @@ const ReadMore = ({ children, maxChars = 200, textClassName = "read-more__text",
     return <p className={textClassName}>{children}</p>;
   }
 
-  const buttonLabel = isExpanded ? "Show less" : "Read more";
+  const buttonLabel = isExpanded ? 'Show less' : 'Read more';
   const ariaLabelText = showMoreAriaLabel ? `${buttonLabel}: ${showMoreAriaLabel}` : undefined;
 
   return (
     <div className="read-more">
       <p id={textId} className={textClassName}>
-        {isExpanded
-          ? children
-          : <>{children.slice(0, maxChars).trim()}<span aria-hidden="true">...</span></>}
+        {isExpanded ? (
+          children
+        ) : (
+          <>
+            {children.slice(0, maxChars).trim()}
+            <span aria-hidden="true">...</span>
+          </>
+        )}
       </p>
       <button
         type="button"

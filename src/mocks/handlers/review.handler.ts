@@ -14,9 +14,7 @@ export const reviewHandlers = [
     const cursor = url.searchParams.get('cursor');
     const limit = Number(url.searchParams.get('limit')) || DEFAULT_LIMIT;
 
-    const startIndex = cursor
-      ? mockReviews.findIndex((r) => r.id === cursor)
-      : 0;
+    const startIndex = cursor ? mockReviews.findIndex((r) => r.id === cursor) : 0;
 
     const page = mockReviews.slice(startIndex, startIndex + limit);
     const nextItem = mockReviews[startIndex + limit];
@@ -31,10 +29,7 @@ export const reviewHandlers = [
 
   http.post(`${BASE_URL}/api/v1/restaurants/:restaurantId/reviews`, async ({ request }) => {
     await mockDelay();
-    const body = await request.json() as Record<string, unknown>;
-    return HttpResponse.json(
-      { id: `review-${Date.now()}`, ...body },
-      { status: 201 }
-    );
+    const body = (await request.json()) as Record<string, unknown>;
+    return HttpResponse.json({ id: `review-${Date.now()}`, ...body }, { status: 201 });
   }),
 ];

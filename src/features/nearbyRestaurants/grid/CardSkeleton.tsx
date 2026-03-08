@@ -1,4 +1,4 @@
-import "./styles.scss";
+import './styles.scss';
 
 const CardSkeleton = () => (
   <li className="card-skeleton" aria-hidden="true">

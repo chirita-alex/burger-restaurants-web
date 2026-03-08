@@ -1,5 +1,5 @@
-import { fireEvent,render, screen } from '@testing-library/react';
-import { describe, expect,it } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 
 import type { Review } from '../../types/review';
 import { prettyDate } from '../../utils/prettyDate';
@@ -20,32 +20,50 @@ const mockReview: Review = {
 
 describe('ReviewCard', () => {
   it('renders the review description', () => {
-    render(<ul><ReviewCard review={mockReview} /></ul>);
+    render(
+      <ul>
+        <ReviewCard review={mockReview} />
+      </ul>
+    );
     expect(screen.getByText(SHORT_DESCRIPTION)).toBeInTheDocument();
   });
 
   it('renders the review image with descriptive alt text', () => {
-    render(<ul><ReviewCard review={mockReview} /></ul>);
+    render(
+      <ul>
+        <ReviewCard review={mockReview} />
+      </ul>
+    );
     const img = screen.getByRole('img', { name: 'Reviewed burger' });
     expect(img).toHaveAttribute('src', '/images/review-1.jpg');
   });
 
   it('renders the image with lazy loading', () => {
-    render(<ul><ReviewCard review={mockReview} /></ul>);
-    expect(
-      screen.getByRole('img', { name: 'Reviewed burger' })
-    ).toHaveAttribute('loading', 'lazy');
+    render(
+      <ul>
+        <ReviewCard review={mockReview} />
+      </ul>
+    );
+    expect(screen.getByRole('img', { name: 'Reviewed burger' })).toHaveAttribute('loading', 'lazy');
   });
 
   it('renders the date in a time element', () => {
-    render(<ul><ReviewCard review={mockReview} /></ul>);
+    render(
+      <ul>
+        <ReviewCard review={mockReview} />
+      </ul>
+    );
     const timeEl = screen.getByText(prettyDate(mockReview.createdAt));
     expect(timeEl).toBeInTheDocument();
     expect(timeEl).toHaveAttribute('dateTime', new Date(mockReview.createdAt).toISOString());
   });
 
   it('renders rating details', () => {
-    render(<ul><ReviewCard review={mockReview} /></ul>);
+    render(
+      <ul>
+        <ReviewCard review={mockReview} />
+      </ul>
+    );
     expect(screen.getByText('Taste')).toBeInTheDocument();
     expect(screen.getByText('Texture')).toBeInTheDocument();
   });
@@ -53,10 +71,18 @@ describe('ReviewCard', () => {
 
 describe('ReviewCard — ReadMore integration', () => {
   const renderLong = (description = LONG_DESCRIPTION) =>
-    render(<ul><ReviewCard review={{ ...mockReview, description }} /></ul>);
+    render(
+      <ul>
+        <ReviewCard review={{ ...mockReview, description }} />
+      </ul>
+    );
 
   it('renders short description without a Read more button', () => {
-    render(<ul><ReviewCard review={mockReview} /></ul>);
+    render(
+      <ul>
+        <ReviewCard review={mockReview} />
+      </ul>
+    );
     expect(screen.getByText(SHORT_DESCRIPTION)).toBeInTheDocument();
     expect(screen.queryByRole('button', { name: /read more/i })).not.toBeInTheDocument();
   });
@@ -74,7 +100,10 @@ describe('ReviewCard — ReadMore integration', () => {
 
   it('Read more button has aria-expanded="false" when collapsed', () => {
     renderLong();
-    expect(screen.getByRole('button', { name: /read more/i })).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.getByRole('button', { name: /read more/i })).toHaveAttribute(
+      'aria-expanded',
+      'false'
+    );
   });
 
   it('Read more button has a descriptive aria-label', () => {

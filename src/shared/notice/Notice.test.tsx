@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
-import { isRouteErrorResponse,MemoryRouter, useRouteError } from 'react-router-dom';
-import { afterEach,beforeEach, describe, expect, it, vi } from 'vitest';
+import { isRouteErrorResponse, MemoryRouter, useRouteError } from 'react-router-dom';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import Notice from './Notice';
 
@@ -98,31 +98,56 @@ describe('Notice', () => {
     });
 
     it('renders not-found for 404', () => {
-      vi.mocked(useRouteError).mockReturnValue({ status: 404, statusText: 'Not Found', internal: true, data: {} });
+      vi.mocked(useRouteError).mockReturnValue({
+        status: 404,
+        statusText: 'Not Found',
+        internal: true,
+        data: {},
+      });
       renderNotice();
       expect(screen.getByRole('heading')).toHaveTextContent('Page not found');
     });
 
     it('renders unauthorized for 401', () => {
-      vi.mocked(useRouteError).mockReturnValue({ status: 401, statusText: 'Unauthorized', internal: true, data: {} });
+      vi.mocked(useRouteError).mockReturnValue({
+        status: 401,
+        statusText: 'Unauthorized',
+        internal: true,
+        data: {},
+      });
       renderNotice();
       expect(screen.getByRole('heading')).toHaveTextContent('Unauthorized');
     });
 
     it('renders unauthorized for 403', () => {
-      vi.mocked(useRouteError).mockReturnValue({ status: 403, statusText: 'Forbidden', internal: true, data: {} });
+      vi.mocked(useRouteError).mockReturnValue({
+        status: 403,
+        statusText: 'Forbidden',
+        internal: true,
+        data: {},
+      });
       renderNotice();
       expect(screen.getByRole('heading')).toHaveTextContent('Unauthorized');
     });
 
     it('renders error for 500', () => {
-      vi.mocked(useRouteError).mockReturnValue({ status: 500, statusText: 'Internal Server Error', internal: true, data: {} });
+      vi.mocked(useRouteError).mockReturnValue({
+        status: 500,
+        statusText: 'Internal Server Error',
+        internal: true,
+        data: {},
+      });
       renderNotice();
       expect(screen.getByRole('heading')).toHaveTextContent('Something went wrong');
     });
 
     it('renders error for unmapped status codes', () => {
-      vi.mocked(useRouteError).mockReturnValue({ status: 418, statusText: "I'm a Teapot", internal: true, data: {} });
+      vi.mocked(useRouteError).mockReturnValue({
+        status: 418,
+        statusText: "I'm a Teapot",
+        internal: true,
+        data: {},
+      });
       renderNotice();
       expect(screen.getByRole('heading')).toHaveTextContent('Something went wrong');
     });

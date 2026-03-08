@@ -1,9 +1,9 @@
-import "./Layout.scss";
+import './Layout.scss';
 
-import { Outlet, ScrollRestoration } from "react-router-dom";
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 
-import Footer from "../shared/layout/footer/Footer";
-import Header from "../shared/layout/header/Header";
+import Footer from '../shared/layout/footer/Footer';
+import Header from '../shared/layout/header/Header';
 
 const Layout = () => (
   <div className="layout">

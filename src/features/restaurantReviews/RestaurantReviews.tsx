@@ -1,11 +1,11 @@
-import "./styles.scss";
+import './styles.scss';
 
-import { useCallback, useMemo } from "react";
+import { useCallback, useMemo } from 'react';
 
-import { useRestaurantReviews } from "../../api/hooks/useRestaurantReviews";
-import { useOnVisible } from "../../hooks/useOnVisible";
-import Notice from "../../shared/notice/Notice";
-import ReviewCard from "./ReviewCard";
+import { useRestaurantReviews } from '../../api/hooks/useRestaurantReviews';
+import { useOnVisible } from '../../hooks/useOnVisible';
+import Notice from '../../shared/notice/Notice';
+import ReviewCard from './ReviewCard';
 
 type RestaurantReviewsProps = {
   restaurantId: string;
@@ -15,10 +15,7 @@ const RestaurantReviews = ({ restaurantId }: RestaurantReviewsProps) => {
   const { data, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage, error } =
     useRestaurantReviews({ restaurantId });
 
-  const reviews = useMemo(
-    () => data?.pages.flatMap((page) => page.data) ?? [],
-    [data]
-  );
+  const reviews = useMemo(() => data?.pages.flatMap((page) => page.data) ?? [], [data]);
 
   const handleLoadMore = useCallback(() => {
     if (hasNextPage && !isFetchingNextPage) fetchNextPage();
@@ -51,9 +48,7 @@ const RestaurantReviews = ({ restaurantId }: RestaurantReviewsProps) => {
   return (
     <section className="restaurant-reviews" aria-labelledby="reviews-heading">
       <header className="restaurant-reviews__header">
-        <h2 id="reviews-heading">
-          Reviews
-        </h2>
+        <h2 id="reviews-heading">Reviews</h2>
       </header>
 
       {isFetchingNextPage && (
@@ -62,10 +57,7 @@ const RestaurantReviews = ({ restaurantId }: RestaurantReviewsProps) => {
         </p>
       )}
 
-      <ul
-        className="restaurant-reviews__list"
-        aria-busy={isLoading || isFetchingNextPage}
-      >
+      <ul className="restaurant-reviews__list" aria-busy={isLoading || isFetchingNextPage}>
         {isLoading && (
           <li className="restaurant-reviews__loading" aria-hidden="true">
             {Array.from({ length: 3 }, (_, i) => (
@@ -74,10 +66,7 @@ const RestaurantReviews = ({ restaurantId }: RestaurantReviewsProps) => {
           </li>
         )}
 
-        {!isLoading &&
-          reviews.map((review) => (
-            <ReviewCard key={review.id} review={review} />
-          ))}
+        {!isLoading && reviews.map((review) => <ReviewCard key={review.id} review={review} />)}
 
         {isFetchingNextPage && (
           <li className="restaurant-reviews__loading" aria-hidden="true">
@@ -88,11 +77,7 @@ const RestaurantReviews = ({ restaurantId }: RestaurantReviewsProps) => {
         )}
 
         {hasNextPage && !isFetchingNextPage && (
-          <li
-            ref={sentinelRef}
-            className="restaurant-reviews__sentinel"
-            aria-hidden="true"
-          />
+          <li ref={sentinelRef} className="restaurant-reviews__sentinel" aria-hidden="true" />
         )}
       </ul>
     </section>

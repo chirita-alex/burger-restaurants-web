@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect,it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import type { NearbyRestaurant } from '../../../types/restaurant';
 import Card from './Card';
@@ -41,7 +41,9 @@ describe('Card', () => {
 
   it('has an accessible link label', () => {
     renderCard();
-    expect(screen.getByRole('link', { name: /view details for burger palace/i })).toBeInTheDocument();
+    expect(
+      screen.getByRole('link', { name: /view details for burger palace/i })
+    ).toBeInTheDocument();
   });
 
   it('renders the card image with empty alt (decorative)', () => {

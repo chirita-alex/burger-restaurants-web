@@ -1,24 +1,24 @@
 // Color variables
-$color-primary: #2563EB;
-$color-secondary: #3B82F6;
-$color-accent: #60A5FA;
+$color-primary: #2563eb;
+$color-secondary: #3b82f6;
+$color-accent: #60a5fa;
 
-$color-background: #FAFAFA;
-$color-surface: #FFFFFF;
+$color-background: #fafafa;
+$color-surface: #ffffff;
 
-$color-bg-header: #1E3A8A;
-$color-bg-footer: #1E40AF;
+$color-bg-header: #1e3a8a;
+$color-bg-footer: #1e40af;
 
-$color-text: #1A1A1A;
+$color-text: #1a1a1a;
 $color-text-muted: #737373;
-$color-text-light: #A3A3A3;
+$color-text-light: #a3a3a3;
 
-$color-border: #E5E5E5;
+$color-border: #e5e5e5;
 $color-black: #171717;
 
-$color-success: #16A34A;
-$color-error: #DC2626;
-$color-warning: #D97706;
+$color-success: #16a34a;
+$color-error: #dc2626;
+$color-warning: #d97706;
 
 // Spacing variables
 $spacing-xs: 8px;
@@ -28,7 +28,11 @@ $spacing-lg: 32px;
 $spacing-xl: 64px;
 
 // Font variables
-$font-family-base: 'Montserrat', system-ui, -apple-system, sans-serif;;
+$font-family-base:
+  'Montserrat',
+  system-ui,
+  -apple-system,
+  sans-serif;
 $font-size-base: 16px;
 $font-size-sm: 14px;
 $font-size-lg: 18px;
@@ -55,9 +59,12 @@ $border-radius-sm: 6px;
 $border-radius-md: 8px;
 $border-radius-lg: 10px;
 
-
 // Shadow variables
 $shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-$shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
-$shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+$shadow-sm:
+  0 1px 3px 0 rgba(0, 0, 0, 0.1),
+  0 1px 2px -1px rgba(0, 0, 0, 0.1);
+$shadow-md:
+  0 4px 6px -1px rgba(0, 0, 0, 0.1),
+  0 2px 4px -2px rgba(0, 0, 0, 0.1);
 $shadow-lg: 0 4px 6px -4px rgba(0, 0, 0, 0.1);

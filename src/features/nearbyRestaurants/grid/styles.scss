@@ -17,7 +17,9 @@
   border-radius: $border-radius-md;
   box-shadow: $shadow-md;
   overflow: hidden;
-  transition: box-shadow 0.2s, transform 0.2s;
+  transition:
+    box-shadow 0.2s,
+    transform 0.2s;
 
   &:hover {
     box-shadow: $shadow-lg;
@@ -55,17 +57,23 @@
     font-size: $font-size-sm;
     color: $color-text-muted;
 
-    dt { font-weight: $font-weight-medium; }
-    dd { color: $color-text; }
+    dt {
+      font-weight: $font-weight-medium;
+    }
+    dd {
+      color: $color-text;
+    }
   }
 }
 
-
-
 // Loading skeleton - START
 @keyframes shimmer {
-  0% { background-position: -400px 0; }
-  100% { background-position: 400px 0; }
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
 }
 
 %skeleton-base {

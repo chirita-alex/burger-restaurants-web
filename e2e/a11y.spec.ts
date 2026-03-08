@@ -1,5 +1,5 @@
 import AxeBuilder from '@axe-core/playwright';
-import { expect,test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 const wcagTags = ['wcag21aa'];
 
@@ -9,9 +9,7 @@ test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
 
     await expect(page.locator('ul.grid[aria-busy="false"]')).toBeVisible();
 
-    const results = await new AxeBuilder({ page })
-      .withTags(wcagTags)
-      .analyze();
+    const results = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
 
     expect(results.violations).toEqual([]);
   });
@@ -21,9 +19,7 @@ test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
 
     await expect(page.locator('ul.grid[aria-busy="true"]')).toBeVisible();
 
-    const results = await new AxeBuilder({ page })
-      .withTags(wcagTags)
-      .analyze();
+    const results = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
 
     expect(results.violations).toEqual([]);
   });
@@ -31,12 +27,14 @@ test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
   test('restaurant page — details and reviews loaded', async ({ page }) => {
     await page.goto('/restaurant/1');
 
-    await expect(page.getByRole('heading', { name: 'Burger House', level: 2 })).toBeVisible({ timeout: 15_000 });
-    await expect(page.getByRole('heading', { name: 'Reviews', level: 2 })).toBeVisible({ timeout: 15_000 });
+    await expect(page.getByRole('heading', { name: 'Burger House', level: 2 })).toBeVisible({
+      timeout: 15_000,
+    });
+    await expect(page.getByRole('heading', { name: 'Reviews', level: 2 })).toBeVisible({
+      timeout: 15_000,
+    });
 
-    const results = await new AxeBuilder({ page })
-      .withTags(wcagTags)
-      .analyze();
+    const results = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
 
     expect(results.violations).toEqual([]);
   });
@@ -45,18 +43,14 @@ test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
     test.use({ serviceWorkers: 'block' });
 
     test('home page — error notice', async ({ page }) => {
-      await page.route('**/api/v1/restaurants/nearby**', (route) =>
-        route.fulfill({ status: 500 })
-      );
+      await page.route('**/api/v1/restaurants/nearby**', (route) => route.fulfill({ status: 500 }));
 
       await page.goto('/');
-      await expect(
-        page.getByRole('heading', { name: 'Failed to load restaurants' })
-      ).toBeVisible({ timeout: 15_000 });
+      await expect(page.getByRole('heading', { name: 'Failed to load restaurants' })).toBeVisible({
+        timeout: 15_000,
+      });
 
-      const results = await new AxeBuilder({ page })
-        .withTags(wcagTags)
-        .analyze();
+      const results = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
 
       expect(results.violations).toEqual([]);
     });
@@ -71,21 +65,15 @@ test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
       );
 
       await page.goto('/');
-      await expect(
-        page.getByRole('heading', { name: 'No restaurants found' })
-      ).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'No restaurants found' })).toBeVisible();
 
-      const results = await new AxeBuilder({ page })
-        .withTags(wcagTags)
-        .analyze();
+      const results = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
 
       expect(results.violations).toEqual([]);
     });
 
     test('restaurant page — error notice', async ({ page }) => {
-      await page.route('**/api/v1/restaurants/*', (route) =>
-        route.fulfill({ status: 500 })
-      );
+      await page.route('**/api/v1/restaurants/*', (route) => route.fulfill({ status: 500 }));
       await page.route('**/api/v1/reviews**', (route) =>
         route.fulfill({
           status: 200,
@@ -95,13 +83,11 @@ test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
       );
 
       await page.goto('/restaurant/1');
-      await expect(
-        page.getByRole('heading', { name: 'Failed to load restaurant' })
-      ).toBeVisible({ timeout: 15_000 });
+      await expect(page.getByRole('heading', { name: 'Failed to load restaurant' })).toBeVisible({
+        timeout: 15_000,
+      });
 
-      const results = await new AxeBuilder({ page })
-        .withTags(wcagTags)
-        .analyze();
+      const results = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
 
       expect(results.violations).toEqual([]);
     });
@@ -135,13 +121,9 @@ test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
       );
 
       await page.goto('/restaurant/1');
-      await expect(
-        page.getByRole('heading', { name: 'No reviews yet' })
-      ).toBeVisible();
+      await expect(page.getByRole('heading', { name: 'No reviews yet' })).toBeVisible();
 
-      const results = await new AxeBuilder({ page })
-        .withTags(wcagTags)
-        .analyze();
+      const results = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
 
       expect(results.violations).toEqual([]);
     });
@@ -150,9 +132,7 @@ test.describe('Accessibility - axe-core WCAG 2.1 AA', () => {
       await page.goto('/this-route-does-not-exist');
       await expect(page.getByRole('heading', { name: 'Page not found' })).toBeVisible();
 
-      const results = await new AxeBuilder({ page })
-        .withTags(wcagTags)
-        .analyze();
+      const results = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
 
       expect(results.violations).toEqual([]);
     });

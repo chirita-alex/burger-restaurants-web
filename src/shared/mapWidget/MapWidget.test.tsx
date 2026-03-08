@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { afterEach,beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import MapWidget from './MapWidget';
 
@@ -11,7 +11,9 @@ vi.mock('leaflet', () => ({
 
 vi.mock('../notice/Notice', () => ({
   default: ({ heading, message }: { heading: string; message: string }) => (
-    <div role="alert">{heading}: {message}</div>
+    <div role="alert">
+      {heading}: {message}
+    </div>
   ),
 }));
 
@@ -22,7 +24,9 @@ vi.mock('react-leaflet', () => ({
   },
   TileLayer: () => null,
   Marker: ({ children, title }: { children: React.ReactNode; title: string }) => (
-    <div data-testid="map-marker" title={title}>{children}</div>
+    <div data-testid="map-marker" title={title}>
+      {children}
+    </div>
   ),
   Popup: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
 }));
@@ -30,7 +34,7 @@ vi.mock('react-leaflet', () => ({
 vi.mock('leaflet/dist/leaflet.css', () => ({}));
 
 const mockPins = [
-  { id: 'pin-1', latitude: 44.43, longitude: 26.10, tooltip: { name: 'Burger Palace' } },
+  { id: 'pin-1', latitude: 44.43, longitude: 26.1, tooltip: { name: 'Burger Palace' } },
   { id: 'pin-2', latitude: 44.44, longitude: 26.11, tooltip: { name: 'Stack House' } },
 ];
 
@@ -57,7 +61,7 @@ describe('MapWidget', () => {
   });
 
   it('uses a fallback title when tooltip is absent', () => {
-    const pinsWithoutTooltip = [{ id: 'pin-1', latitude: 44.43, longitude: 26.10 }];
+    const pinsWithoutTooltip = [{ id: 'pin-1', latitude: 44.43, longitude: 26.1 }];
     render(<MapWidget pins={pinsWithoutTooltip} />);
     expect(screen.getByTitle('Map pin')).toBeInTheDocument();
   });

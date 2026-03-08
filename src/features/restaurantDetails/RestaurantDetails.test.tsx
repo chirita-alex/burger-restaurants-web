@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { fireEvent,render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import { http, HttpResponse } from 'msw';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { describe, expect, it, vi } from 'vitest';
@@ -45,8 +45,15 @@ describe('RestaurantDetails - integration', () => {
 
   it('renders the address', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    expect(await screen.findByText(mockRestaurant.address.street, { exact: false })).toBeInTheDocument();
-    expect(screen.getByText((_, el) => el?.tagName === 'DD' && (el.textContent ?? '').includes(mockRestaurant.address.city))).toBeInTheDocument();
+    expect(
+      await screen.findByText(mockRestaurant.address.street, { exact: false })
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        (_, el) =>
+          el?.tagName === 'DD' && (el.textContent ?? '').includes(mockRestaurant.address.city)
+      )
+    ).toBeInTheDocument();
   });
 
   it('renders the truncated description via ReadMore', async () => {
@@ -57,12 +64,16 @@ describe('RestaurantDetails - integration', () => {
 
   it('shows Read more button for long description', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    expect(await screen.findByRole('button', { name: /read more: restaurant description/i })).toBeInTheDocument();
+    expect(
+      await screen.findByRole('button', { name: /read more: restaurant description/i })
+    ).toBeInTheDocument();
   });
 
   it('expands full description when Read more is clicked', async () => {
     render(<RestaurantDetails restaurantId="1" />, { wrapper: createWrapper() });
-    fireEvent.click(await screen.findByRole('button', { name: /read more: restaurant description/i }));
+    fireEvent.click(
+      await screen.findByRole('button', { name: /read more: restaurant description/i })
+    );
     expect(screen.getByText(mockRestaurant.description)).toBeInTheDocument();
   });
 
@@ -84,9 +95,7 @@ describe('RestaurantDetails - integration', () => {
 
   it('shows not-found notice when restaurant data is missing', async () => {
     server.use(
-      http.get(`${BASE_URL}/api/v1/restaurants/:id`, () =>
-        HttpResponse.json(null, { status: 200 })
-      )
+      http.get(`${BASE_URL}/api/v1/restaurants/:id`, () => HttpResponse.json(null, { status: 200 }))
     );
     render(<RestaurantDetails restaurantId="999" />, { wrapper: createWrapper() });
     expect(await screen.findByText('Restaurant not found')).toBeInTheDocument();

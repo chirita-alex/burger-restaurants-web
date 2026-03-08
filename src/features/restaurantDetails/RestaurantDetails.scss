@@ -1,8 +1,12 @@
 @use '../../styles/variables' as *;
 
 @keyframes shimmer {
-  0% { background-position: -800px 0; }
-  100% { background-position: 800px 0; }
+  0% {
+    background-position: -800px 0;
+  }
+  100% {
+    background-position: 800px 0;
+  }
 }
 
 .restaurant-details {

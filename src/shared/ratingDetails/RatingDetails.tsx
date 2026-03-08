@@ -1,20 +1,20 @@
-import "./RatingDetails.scss";
+import './RatingDetails.scss';
 
-import type { Rating } from "../../types/restaurant";
+import type { Rating } from '../../types/restaurant';
 
 type RatingDetailsProps = {
   rating: Rating;
-  size?: "sm" | "md" | "lg";
+  size?: 'sm' | 'md' | 'lg';
 };
 
 const LABELS: Record<keyof Rating, string> = {
-  taste: "Taste",
-  texture: "Texture",
-  visual: "Visual",
-  general: "General",
+  taste: 'Taste',
+  texture: 'Texture',
+  visual: 'Visual',
+  general: 'General',
 };
 
-const RatingDetails = ({ rating, size = "md" }: RatingDetailsProps) => (
+const RatingDetails = ({ rating, size = 'md' }: RatingDetailsProps) => (
   <dl className={`rating-details rating-details--${size}`}>
     {(Object.keys(LABELS) as Array<keyof Rating>).map((key) => (
       <div key={key} className="rating-details__item">

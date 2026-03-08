@@ -1,4 +1,4 @@
-import { expect,test } from '@playwright/test';
+import { expect, test } from '@playwright/test';
 
 test.describe('App wide general behavior', () => {
   test('page title updates on the home route', async ({ page }) => {
@@ -31,13 +31,13 @@ test.describe('App wide general behavior', () => {
     });
 
     test('home link on an error notice navigates back home', async ({ page }) => {
-      await page.route('**/api/v1/restaurants/nearby**', (route) =>
-        route.fulfill({ status: 500 })
-      );
+      await page.route('**/api/v1/restaurants/nearby**', (route) => route.fulfill({ status: 500 }));
 
       await page.goto('/');
 
-      await expect(page.getByRole('heading', { name: 'Failed to load restaurants' })).toBeVisible({ timeout: 15_000 });
+      await expect(page.getByRole('heading', { name: 'Failed to load restaurants' })).toBeVisible({
+        timeout: 15_000,
+      });
       await page.goto('/this-route-does-not-exist');
       await page.getByRole('link', { name: 'Go to home page' }).click();
 

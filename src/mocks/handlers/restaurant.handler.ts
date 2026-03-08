@@ -2,7 +2,7 @@ import { http, HttpResponse } from 'msw';
 
 import { BASE_URL } from '../../api/constants';
 import type { NearbyRestaurantsResponse } from '../../api/types';
-import { mockNearbyRestaurants,mockRestaurant } from '../data/restaurants.mock';
+import { mockNearbyRestaurants, mockRestaurant } from '../data/restaurants.mock';
 import { mockDelay } from '../utils/delay';
 
 const DEFAULT_LIMIT = 7;
@@ -14,9 +14,7 @@ export const restaurantHandlers = [
     const cursor = url.searchParams.get('cursor');
     const limit = Number(url.searchParams.get('limit')) || DEFAULT_LIMIT;
 
-    const startIndex = cursor
-      ? mockNearbyRestaurants.findIndex((r) => r.id === cursor)
-      : 0;
+    const startIndex = cursor ? mockNearbyRestaurants.findIndex((r) => r.id === cursor) : 0;
 
     const page = mockNearbyRestaurants.slice(startIndex, startIndex + limit);
     const nextItem = mockNearbyRestaurants[startIndex + limit];
@@ -36,4 +34,4 @@ export const restaurantHandlers = [
       id: params.id,
     });
   }),
-]
+];

@@ -1,0 +1,8 @@
+# MSW generated service worker — do not format
+public/mockServiceWorker.js
+
+# Build outputs
+dist/
+coverage/
+playwright-report/
+test-results/

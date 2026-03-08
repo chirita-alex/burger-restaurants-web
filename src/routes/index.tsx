@@ -1,9 +1,9 @@
-import { createBrowserRouter } from "react-router-dom";
+import { createBrowserRouter } from 'react-router-dom';
 
-import Layout from "../layout/Layout";
-import HomePage from "../pages/HomePage";
-import RestaurantPage from "../pages/RestaurantPage";
-import Notice from "../shared/notice/Notice";
+import Layout from '../layout/Layout';
+import HomePage from '../pages/HomePage';
+import RestaurantPage from '../pages/RestaurantPage';
+import Notice from '../shared/notice/Notice';
 
 export const router = createBrowserRouter([
   {
@@ -11,11 +11,11 @@ export const router = createBrowserRouter([
     errorElement: <Notice />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <HomePage />,
       },
       {
-        path: "/restaurant/:id",
+        path: '/restaurant/:id',
         element: <RestaurantPage />,
       },
     ],

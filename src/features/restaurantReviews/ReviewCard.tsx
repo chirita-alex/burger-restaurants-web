@@ -1,9 +1,9 @@
-import "./styles.scss";
+import './styles.scss';
 
-import RatingDetails from "../../shared/ratingDetails/RatingDetails";
-import ReadMore from "../../shared/readMore/ReadMore";
-import type { Review } from "../../types/review";
-import { prettyDate } from "../../utils/prettyDate";
+import RatingDetails from '../../shared/ratingDetails/RatingDetails';
+import ReadMore from '../../shared/readMore/ReadMore';
+import type { Review } from '../../types/review';
+import { prettyDate } from '../../utils/prettyDate';
 
 type ReviewCardProps = {
   review: Review;
@@ -25,12 +25,12 @@ const ReviewCard = ({ review }: ReviewCardProps) => (
         {/* Here we would normally fetch the user details based on review.userId, 
           but for this example, we'll hardcode it. 
         */}
-        <ReadMore 
-          maxChars={650} 
-          showMoreAriaLabel={"Jhon Doe review"}
+        <ReadMore
+          maxChars={650}
+          showMoreAriaLabel={'Jhon Doe review'}
           textClassName="review-card__description"
-         >
-            {review.description}
+        >
+          {review.description}
         </ReadMore>
 
         <footer className="review-card__footer">
@@ -39,10 +39,7 @@ const ReviewCard = ({ review }: ReviewCardProps) => (
           */}
           <p className="review-card__user">Jhon Doe</p>
 
-          <time
-            className="review-card__date"
-            dateTime={new Date(review.createdAt).toISOString()}
-          >
+          <time className="review-card__date" dateTime={new Date(review.createdAt).toISOString()}>
             {prettyDate(review.createdAt)}
           </time>
         </footer>

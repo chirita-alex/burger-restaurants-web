@@ -1,4 +1,4 @@
-import { type RefObject, useEffect, useRef } from "react";
+import { type RefObject, useEffect, useRef } from 'react';
 
 export function useOnVisible<T extends HTMLElement = HTMLDivElement>(
   onVisible: () => void,
@@ -10,15 +10,12 @@ export function useOnVisible<T extends HTMLElement = HTMLDivElement>(
   useEffect(() => {
     if (!ref.current) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]: IntersectionObserverEntry[]): void => {
-        if (entry.isIntersecting) {
-          onVisible();
-          observer.disconnect();
-        }
-      },
-      optionsRef.current
-    );
+    const observer = new IntersectionObserver(([entry]: IntersectionObserverEntry[]): void => {
+      if (entry.isIntersecting) {
+        onVisible();
+        observer.disconnect();
+      }
+    }, optionsRef.current);
 
     observer.observe(ref.current);
 

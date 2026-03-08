@@ -1,5 +1,5 @@
-import { fireEvent,render, screen } from '@testing-library/react';
-import { describe, expect,it } from 'vitest';
+import { fireEvent, render, screen } from '@testing-library/react';
+import { describe, expect, it } from 'vitest';
 
 import ReadMore from './ReadMore';
 
@@ -28,7 +28,10 @@ describe('ReadMore', () => {
 
   it('Read more button has aria-expanded="false" when collapsed', () => {
     render(<ReadMore>{LONG_TEXT}</ReadMore>);
-    expect(screen.getByRole('button', { name: /read more/i })).toHaveAttribute('aria-expanded', 'false');
+    expect(screen.getByRole('button', { name: /read more/i })).toHaveAttribute(
+      'aria-expanded',
+      'false'
+    );
   });
 
   it('respects custom maxChars prop', () => {
@@ -68,13 +71,17 @@ describe('ReadMore', () => {
 
   it('uses a descriptive aria-label when showMoreAriaLabel prop is provided', () => {
     render(<ReadMore showMoreAriaLabel="restaurant description">{LONG_TEXT}</ReadMore>);
-    expect(screen.getByRole('button', { name: 'Read more: restaurant description' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Read more: restaurant description' })
+    ).toBeInTheDocument();
   });
 
   it('updates aria-label to Show less when expanded with showMoreAriaLabel prop', () => {
     render(<ReadMore showMoreAriaLabel="restaurant description">{LONG_TEXT}</ReadMore>);
     fireEvent.click(screen.getByRole('button', { name: 'Read more: restaurant description' }));
-    expect(screen.getByRole('button', { name: 'Show less: restaurant description' })).toBeInTheDocument();
+    expect(
+      screen.getByRole('button', { name: 'Show less: restaurant description' })
+    ).toBeInTheDocument();
   });
 
   it('has no aria-label when showMoreAriaLabel prop is omitted', () => {

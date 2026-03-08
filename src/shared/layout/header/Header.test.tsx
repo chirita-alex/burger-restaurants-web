@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import { describe, expect,it } from 'vitest';
+import { describe, expect, it } from 'vitest';
 
 import Header from './Header';
 
@@ -19,7 +19,10 @@ describe('Header', () => {
 
   it('logo links to the home page', () => {
     renderHeader();
-    expect(screen.getByRole('link', { name: /burger restaurants home page/i })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: /burger restaurants home page/i })).toHaveAttribute(
+      'href',
+      '/'
+    );
   });
 
   it('renders the main navigation landmark', () => {
@@ -29,6 +32,9 @@ describe('Header', () => {
 
   it('renders the nearby restaurants nav link', () => {
     renderHeader();
-    expect(screen.getByRole('link', { name: /nearby restaurants page/i })).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: /nearby restaurants page/i })).toHaveAttribute(
+      'href',
+      '/'
+    );
   });
 });
