@@ -1,9 +1,11 @@
-import { Link, isRouteErrorResponse, useRouteError } from "react-router-dom";
+import "./Notice.scss";
+
+import { isRouteErrorResponse, Link, useRouteError } from "react-router-dom";
+
+import emptyFilesSvg from "../../assets/icons/empty-files.svg";
 import errorSvg from "../../assets/icons/error.svg";
 import notFoundSvg from "../../assets/icons/not-found.svg";
 import unauthorizedSvg from "../../assets/icons/unauthorized.svg";
-import emptyFilesSvg from "../../assets/icons/empty-files.svg";
-import "./Notice.scss";
 
 export type NoticeType = "error" | "not-found" | "unauthorized" | "empty";
 

@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
-import type { NearbyRestaurant } from "../../../types/restaurant";
 import "./styles.scss";
+
+import { Link } from "react-router-dom";
+
 import RatingDetails from "../../../shared/ratingDetails/RatingDetails";
+import type { NearbyRestaurant } from "../../../types/restaurant";
 
 type CardProps = {
   item: NearbyRestaurant;

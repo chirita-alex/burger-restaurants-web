@@ -1,4 +1,5 @@
 import { useQuery, type UseQueryResult } from '@tanstack/react-query';
+
 import { getNearbyRestaurants } from '../endpoints/restaurants';
 import type { ApiError, NearbyRestaurantsParams, NearbyRestaurantsResponse } from '../types';
 

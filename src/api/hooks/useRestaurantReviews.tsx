@@ -1,5 +1,6 @@
+import { type InfiniteData,useInfiniteQuery, type UseInfiniteQueryResult } from "@tanstack/react-query";
+
 import { getRestaurantReviews } from "../endpoints/reviews";
-import { useInfiniteQuery, type UseInfiniteQueryResult, type InfiniteData } from "@tanstack/react-query";
 import type { ApiError, ReviewsParams, ReviewsResponse } from "../types";
 
 export const useRestaurantReviews = (

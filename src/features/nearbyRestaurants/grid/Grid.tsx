@@ -1,7 +1,8 @@
+import "./styles.scss";
+
 import type { NearbyRestaurant } from "../../../types/restaurant";
 import Card from "./Card";
 import CardSkeleton from "./CardSkeleton";
-import "./styles.scss";
 
 type GridProps = {
   items: NearbyRestaurant[];

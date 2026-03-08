@@ -1,4 +1,5 @@
 import { setupWorker } from 'msw/browser';
+
 import { restaurantHandlers } from './handlers/restaurant.handler';
 import { reviewHandlers } from './handlers/review.handler';
 

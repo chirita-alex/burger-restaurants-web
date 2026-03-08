@@ -1,5 +1,6 @@
-import { useId, useState } from "react";
 import "./ReadMore.scss";
+
+import { useId, useState } from "react";
 
 type ReadMoreProps = {
   children: string;

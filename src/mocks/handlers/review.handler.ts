@@ -1,7 +1,8 @@
 import { http, HttpResponse } from 'msw';
-import { mockReviews } from '../data/reviews.mock';
-import type { ReviewsResponse } from '../../api/types';
+
 import { BASE_URL } from '../../api/constants';
+import type { ReviewsResponse } from '../../api/types';
+import { mockReviews } from '../data/reviews.mock';
 import { mockDelay } from '../utils/delay';
 
 const DEFAULT_LIMIT = 3;

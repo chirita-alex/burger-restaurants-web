@@ -1,7 +1,7 @@
-import axiosInstance from '../axiosInstance';
 import type { 
   Restaurant,
 } from '../../types/restaurant';
+import axiosInstance from '../axiosInstance';
 import type { NearbyRestaurantsParams, NearbyRestaurantsResponse } from '../types';
 
 

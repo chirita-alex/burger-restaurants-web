@@ -1,9 +1,11 @@
+import "./styles.scss";
+
 import { useCallback, useMemo } from "react";
+
 import { useRestaurantReviews } from "../../api/hooks/useRestaurantReviews";
 import { useOnVisible } from "../../hooks/useOnVisible";
 import Notice from "../../shared/notice/Notice";
 import ReviewCard from "./ReviewCard";
-import "./styles.scss";
 
 type RestaurantReviewsProps = {
   restaurantId: string;

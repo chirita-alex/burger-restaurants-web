@@ -1,5 +1,6 @@
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { renderHook, render, act } from '@testing-library/react';
+import { act,render, renderHook } from '@testing-library/react';
+import { afterEach,beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { useOnVisible } from './useOnVisible';
 
 const mockObserve = vi.fn();

@@ -1,8 +1,9 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Grid from './Grid';
+import { describe, expect,it } from 'vitest';
+
 import type { NearbyRestaurant } from '../../../types/restaurant';
+import Grid from './Grid';
 
 const mockItems: NearbyRestaurant[] = [
   {

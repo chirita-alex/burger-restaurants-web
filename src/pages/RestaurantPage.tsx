@@ -1,4 +1,6 @@
-import { useParams } from "react-router-dom";import RestaurantDetails from "../features/restaurantDetails/RestaurantDetails";
+import { useParams } from "react-router-dom";
+
+import RestaurantDetails from "../features/restaurantDetails/RestaurantDetails";
 import RestaurantReviews from "../features/restaurantReviews/RestaurantReviews";
 
 const RestaurantPage = () => {

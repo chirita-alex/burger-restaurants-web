@@ -1,12 +1,13 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
-import { createMemoryRouter, RouterProvider } from 'react-router-dom';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { render, screen } from '@testing-library/react';
 import { http, HttpResponse } from 'msw';
-import NearbyRestaurants from './NearbyRestaurants';
-import { server } from '../../test/server';
+import { createMemoryRouter, RouterProvider } from 'react-router-dom';
+import { describe, expect, it, vi } from 'vitest';
+
 import { BASE_URL } from '../../api/constants';
 import { mockNearbyRestaurants } from '../../mocks/data/restaurants.mock';
+import { server } from '../../test/server';
+import NearbyRestaurants from './NearbyRestaurants';
 
 vi.mock('../../mocks/utils/delay', () => ({ mockDelay: () => Promise.resolve() }));
 

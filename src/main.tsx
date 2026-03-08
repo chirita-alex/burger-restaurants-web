@@ -1,6 +1,8 @@
+import './styles/index.scss';
+
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import './styles/index.scss';
+
 import App from './App.tsx'
 import { worker } from './mocks/browser.ts';
 

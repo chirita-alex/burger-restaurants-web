@@ -1,7 +1,8 @@
 import { http, HttpResponse } from 'msw';
-import { mockRestaurant, mockNearbyRestaurants } from '../data/restaurants.mock';
-import type { NearbyRestaurantsResponse } from '../../api/types';
+
 import { BASE_URL } from '../../api/constants';
+import type { NearbyRestaurantsResponse } from '../../api/types';
+import { mockNearbyRestaurants,mockRestaurant } from '../data/restaurants.mock';
 import { mockDelay } from '../utils/delay';
 
 const DEFAULT_LIMIT = 7;

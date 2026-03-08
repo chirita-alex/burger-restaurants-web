@@ -1,6 +1,7 @@
 import axios from 'axios';
-import type { ApiError } from './types';
+
 import { BASE_URL } from './constants';
+import type { ApiError } from './types';
 
 const axiosInstance = axios.create({
   baseURL: BASE_URL,

@@ -1,5 +1,6 @@
-import type { Rating } from "../../types/restaurant";
 import "./RatingDetails.scss";
+
+import type { Rating } from "../../types/restaurant";
 
 type RatingDetailsProps = {
   rating: Rating;

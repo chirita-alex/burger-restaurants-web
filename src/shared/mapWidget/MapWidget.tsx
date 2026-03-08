@@ -1,9 +1,11 @@
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import { ErrorBoundary } from 'react-error-boundary';
-import Notice from '../notice/Notice';
 import './MapWidget.scss';
 import 'leaflet/dist/leaflet.css';
+
 import L from 'leaflet';
+import { ErrorBoundary } from 'react-error-boundary';
+import { MapContainer, Marker, Popup,TileLayer } from 'react-leaflet';
+
+import Notice from '../notice/Notice';
 
 const pinIcon = L.icon({
   iconUrl: '/images/map-pin.svg',

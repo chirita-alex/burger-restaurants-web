@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { expect,test } from '@playwright/test';
 
 test.describe('App wide general behavior', () => {
   test('page title updates on the home route', async ({ page }) => {

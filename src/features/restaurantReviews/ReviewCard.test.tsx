@@ -1,8 +1,9 @@
-import { describe, it, expect } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
-import ReviewCard from './ReviewCard';
-import { prettyDate } from '../../utils/prettyDate';
+import { fireEvent,render, screen } from '@testing-library/react';
+import { describe, expect,it } from 'vitest';
+
 import type { Review } from '../../types/review';
+import { prettyDate } from '../../utils/prettyDate';
+import ReviewCard from './ReviewCard';
 
 const SHORT_DESCRIPTION = 'Absolutely delicious burger, crispy and juicy.';
 const LONG_DESCRIPTION = 'A'.repeat(651);

@@ -1,4 +1,5 @@
 import { useMemo } from "react";
+
 import { useNearbyRestaurants } from "../../api/hooks/useNearbyRestaurants";
 import MapWidget from "../../shared/mapWidget/MapWidget";
 import Notice from "../../shared/notice/Notice";

@@ -1,9 +1,10 @@
-import { describe, it, expect, vi } from 'vitest';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import { createMemoryRouter, RouterProvider } from 'react-router-dom';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { router as appRouter } from './index';
+import { describe, expect, it, vi } from 'vitest';
+
 import { mockNearbyRestaurants } from '../mocks/data/restaurants.mock';
+import { router as appRouter } from './index';
 
 vi.mock('../mocks/utils/delay', () => ({ mockDelay: () => Promise.resolve() }));
 

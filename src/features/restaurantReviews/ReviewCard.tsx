@@ -1,8 +1,9 @@
-import type { Review } from "../../types/review";
-import RatingDetails from "../../shared/ratingDetails/RatingDetails";
-import { prettyDate } from "../../utils/prettyDate";
 import "./styles.scss";
+
+import RatingDetails from "../../shared/ratingDetails/RatingDetails";
 import ReadMore from "../../shared/readMore/ReadMore";
+import type { Review } from "../../types/review";
+import { prettyDate } from "../../utils/prettyDate";
 
 type ReviewCardProps = {
   review: Review;

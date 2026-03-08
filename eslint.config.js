@@ -10,6 +10,7 @@ import security from 'eslint-plugin-security'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
 import testingLibrary from 'eslint-plugin-testing-library'
 import prettierConfig from 'eslint-config-prettier'
+import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import { defineConfig, globalIgnores } from 'eslint/config'
 
 export default defineConfig([
@@ -35,6 +36,13 @@ export default defineConfig([
     },
     settings: {
       react: { version: 'detect' },
+    },
+    plugins: {
+      'simple-import-sort': simpleImportSort,
+    },
+    rules: {
+      'simple-import-sort/imports': 'error',
+      'simple-import-sort/exports': 'error',
     },
   },
   // Testing Library rules scoped to test files only

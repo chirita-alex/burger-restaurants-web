@@ -1,4 +1,4 @@
-import type { Restaurant, NearbyRestaurant } from '../../types/restaurant';
+import type { NearbyRestaurant,Restaurant } from '../../types/restaurant';
 
 export const mockRestaurant: Restaurant = {
   id: '1',

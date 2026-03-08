@@ -1,8 +1,9 @@
-import { useRestaurant } from "../../api/hooks/useRestaurant";
-import RatingDetails from "../../shared/ratingDetails/RatingDetails";
-import Notice from "../../shared/notice/Notice";
-import ReadMore from "../../shared/readMore/ReadMore";
 import "./RestaurantDetails.scss";
+
+import { useRestaurant } from "../../api/hooks/useRestaurant";
+import Notice from "../../shared/notice/Notice";
+import RatingDetails from "../../shared/ratingDetails/RatingDetails";
+import ReadMore from "../../shared/readMore/ReadMore";
 
 type RestaurantDetailsProps = {
   restaurantId: string;

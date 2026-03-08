@@ -1,8 +1,9 @@
-import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
-import Card from './Card';
+import { describe, expect,it } from 'vitest';
+
 import type { NearbyRestaurant } from '../../../types/restaurant';
+import Card from './Card';
 
 const mockItem: NearbyRestaurant = {
   id: 'restaurant-1',
